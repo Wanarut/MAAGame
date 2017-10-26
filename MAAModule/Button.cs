@@ -11,6 +11,11 @@ namespace MAAModule
 {
     class Button : Component
     {
+        #region
+        public const string Agent_Recharge = "Agent_Recharge";
+        public const string Agent_Inventory = "Agent_Inventory";
+        #endregion
+
         private MouseState currentMouse;
         private MouseState previousMouse;
         private bool isMoveing;

@@ -20,7 +20,7 @@ namespace MAAModule
         private List<Character> teams = new List<Character>();
         private List<Character> enemies = new List<Character>();
         private List<List<Component>> skillComponents = new List<List<Component>>();
-        private Component next;
+        private List<Component> menuComponent = new List<Component>();
         private List<Character> turnbase = new List<Character>();
         private int currentturn = 0;
 
@@ -107,11 +107,17 @@ namespace MAAModule
             }
 
             //next turn btn
-            var btnNextTurn = new Button(Content.Load<Texture2D>("Character/Agent/Agent_Recharge"));
+            var btnNextTurn = new Button(Content.Load<Texture2D>("Character/Agent/" + Button.Agent_Recharge));
             btnNextTurn.Position = new Vector2(((combat_background.Get_Width() - btnNextTurn.Get_Width()) / 2) + ((4 - 3) * (btnNextTurn.Get_Width() + 8)) - (btnNextTurn.Get_Width() / 2), 496);
-            btnNextTurn.Click += btnNextTurn_Click;
-            
-            next = btnNextTurn;
+            menuComponent.Add(btnNextTurn);
+            btnNextTurn.Set_btn_Name(Button.Agent_Recharge);
+            btnNextTurn.Click += btnMenu_Click;
+
+            var btnInventory = new Button(Content.Load<Texture2D>("Character/Agent/" + Button.Agent_Inventory));
+            btnInventory.Position = new Vector2(((combat_background.Get_Width() - btnInventory.Get_Width()) / 2) + ((4 - 2) * (btnInventory.Get_Width() + 8)) - (btnInventory.Get_Width() / 2), 496);
+            menuComponent.Add(btnInventory);
+            btnInventory.Set_btn_Name(Button.Agent_Inventory);
+            btnInventory.Click += btnMenu_Click;
 
             //set turn base
             foreach (Character avatar in teams)
@@ -127,22 +133,30 @@ namespace MAAModule
         private void btnskill_Click(object sender, EventArgs e)
         {
             string btnname = ((Button)sender).Get_Name();
-            Console.Out.WriteLine("Skill " + btnname + " was Pressed!!");
-            combat_background = new Background(Content.Load<Texture2D>("Combat_Background/" + Background.Background_035));
+            Console.Out.WriteLine("Skill " + btnname + " was used!!!");
+            //combat_background = new Background(Content.Load<Texture2D>("Combat_Background/" + Background.Background_035));
         }
 
-        private void btnNextTurn_Click(object sender, EventArgs e)
+        private void btnMenu_Click(object sender, EventArgs e)
         {
-            turnbase[currentturn].YourTurn(false);
+            string btnname = ((Button)sender).Get_Name();
 
-            if (currentturn == turnbase.Count - 1)
+            switch (btnname)
             {
-                combat_background = new Background(Content.Load<Texture2D>("Combat_Background/" + Background.Background_001));
-                currentturn = 0;
+                case Button.Agent_Recharge :
+                    {
+                        turnbase[currentturn].YourTurn(false);
+                        if (currentturn == turnbase.Count - 1) currentturn = 0;
+                        else currentturn++;
+                        turnbase[currentturn].YourTurn(true);
+                        break;
+                    }
+                case Button.Agent_Inventory:
+                    {
+                        //show Inventory Item
+                        break;
+                    }
             }
-            else currentturn++;
-
-            turnbase[currentturn].YourTurn(true);
         }
 
         /// <summary>
@@ -169,7 +183,8 @@ namespace MAAModule
             foreach (var component in skillComponents[currentturn])
                 component.Update(gameTime);
 
-            next.Update(gameTime);
+            foreach (var component in menuComponent)
+                component.Update(gameTime);
 
             foreach (var hero in teams)
                 hero.Update();
@@ -203,8 +218,9 @@ namespace MAAModule
             
             foreach (var component in skillComponents[currentturn])
                 component.Draw(gameTime, spriteBatch);
-            
-            next.Draw(gameTime, spriteBatch);
+
+            foreach (var component in menuComponent)
+                component.Draw(gameTime, spriteBatch);
 
             spriteBatch.End();
 
