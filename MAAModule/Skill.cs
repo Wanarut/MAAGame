@@ -17,7 +17,7 @@ namespace MAAModule
         public const int All_Enemies = -3;
         #endregion
 
-        #region Skills Hero Data
+        #region Skills Data
         public static Skill Dr_Strange_Bolts_of_Balthakk = new Skill("Dr._Strange-Bolts_of_Balthakk", 19, Skill.One_Enemy, 1742, 2089, Skill.NA, 1);
         public static Skill Dr_Strange_Teresing_Boost = new Skill("Dr._Strange-Teresing_Boost", 23, Skill.All_Allies, Skill.NA, Skill.NA, 3, Skill.NA);
         public static Skill Dr_Strange_Vapors_of_Valtorr = new Skill("Dr._Strange-Vapors_of_Valtorr", 38, Skill.All_Enemies, 585, 703, Skill.NA, 1);

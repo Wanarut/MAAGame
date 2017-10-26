@@ -15,6 +15,7 @@ namespace MAAModule
         private MouseState previousMouse;
         private bool isMoveing;
         private Texture2D texture;
+        private string name;
 
         public event EventHandler Click;
 
@@ -37,6 +38,11 @@ namespace MAAModule
             this.texture = texture;
         }
 
+        public string Get_Name()
+        {
+            return name;
+        }
+
         public int Get_Height()
         {
             return texture.Height;
@@ -45,6 +51,11 @@ namespace MAAModule
         public int Get_Width()
         {
             return texture.Width;
+        }
+
+        public void Set_btn_Name(string name)
+        {
+            this.name = name;
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)

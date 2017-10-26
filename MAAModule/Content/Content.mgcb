@@ -37,6 +37,30 @@
 /processorParam:TextureFormat=Color
 /build:Character/Agent/Agent_Recharge.png
 
+#begin Character/Agent/Empty_status_bar.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Agent/Empty_status_bar.png
+
+#begin Character/Agent/Empty_status_bar.psd
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Agent/Empty_status_bar.psd
+
 #begin Character/Ant-Man/Ant-Man_Icon_1.png
 /importer:TextureImporter
 /processor:TextureProcessor

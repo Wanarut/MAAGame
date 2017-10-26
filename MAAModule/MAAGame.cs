@@ -14,21 +14,18 @@ namespace MAAModule
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        protected int width;
-        protected int height;
+        public int width = 760;
+        public int height = 630;
 
         private List<Character> teams = new List<Character>();
         private List<Character> enemies = new List<Character>();
         private List<List<Component>> skillComponents = new List<List<Component>>();
         private Component next;
-        private Component btn_1st_skill;
-        private Component btn_2nd_skill;
-        private Component btn_3rd_skill;
-        private Component btn_4th_skill;
         private List<Character> turnbase = new List<Character>();
         private int currentturn = 0;
 
-        Background combat_background = new Background();
+        Background combat_background;
+        Background empty_status_bar;
 
         public MAAGame()
         {
@@ -54,9 +51,7 @@ namespace MAAModule
             enemies.Add(Character.Hulk);
             enemies.Add(Character.Cable);
             enemies.Add(Character.Captain_America);
-
             //Set background
-            combat_background = new Background("Combat_Background_024");
             
             base.Initialize();
         }
@@ -69,10 +64,13 @@ namespace MAAModule
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            
-            combat_background = new Background(Content.Load<Texture2D>("Combat_Background/" + combat_background.Get_Name()));
 
-            setWindows_size(combat_background.Get_Width(), combat_background.Get_Height());
+            combat_background = new Background(Content.Load<Texture2D>("Combat_Background/" + Background.Background_024));
+
+            empty_status_bar = new Background(Content.Load<Texture2D>("Character/Agent/Empty_status_bar"));
+            empty_status_bar.position = new Vector2(0, 630 - empty_status_bar.Get_Height());
+
+            setWindows_size(width, height);
             
             for (int i = 0; i < teams.Count; i++)
             {
@@ -80,8 +78,9 @@ namespace MAAModule
                 for (int j = 0; j < teams[i].skills.Count; j++)
                 {
                     var btnskill = new Button(Content.Load<Texture2D>("Character/" + teams[i].Get_Name() + "/" + teams[i].skills[j].Get_Name()));
-                    btnskill.Position = new Vector2(((combat_background.Get_Width() - btnskill.Get_Width()) / 2) + ((j - 2) * (btnskill.Get_Width() + 50)) + 50, 450);
+                    btnskill.Position = new Vector2(((combat_background.Get_Width() - btnskill.Get_Width()) / 2) + ((j - 4) * (btnskill.Get_Width() + 8)) + (btnskill.Get_Width() / 2), 496);
                     temp.Add(btnskill);
+                    btnskill.Set_btn_Name(teams[i].skills[j].Get_Name());
                     btnskill.Click += btnskill_Click;
                 }
                 skillComponents.Add(temp);
@@ -96,8 +95,9 @@ namespace MAAModule
                 for (int j = 0; j < enemies[i].skills.Count; j++)
                 {
                     var btnskill = new Button(Content.Load<Texture2D>("Character/" + enemies[i].Get_Name() + "/" + enemies[i].skills[j].Get_Name()));
-                    btnskill.Position = new Vector2(((combat_background.Get_Width() - btnskill.Get_Width()) / 2) + ((j - 2) * (btnskill.Get_Width() + 50)) + 50, 450);
+                    btnskill.Position = new Vector2(((combat_background.Get_Width() - btnskill.Get_Width()) / 2) + ((j - 4) * (btnskill.Get_Width() + 8)) + (btnskill.Get_Width() / 2), 496);
                     temp.Add(btnskill);
+                    btnskill.Set_btn_Name(enemies[i].skills[j].Get_Name());
                     btnskill.Click += btnskill_Click;
                 }
                 skillComponents.Add(temp);
@@ -106,8 +106,9 @@ namespace MAAModule
                 enemies[i].position = new Vector2(width - 40 - ((i % 2) * 150) + (i * 10) - enemies[i].Get_Width(), 330 + (i * 70) - enemies[i].Get_Height());
             }
 
+            //next turn btn
             var btnNextTurn = new Button(Content.Load<Texture2D>("Character/Agent/Agent_Recharge"));
-            btnNextTurn.Position = new Vector2((combat_background.Get_Width() - btnNextTurn.Get_Width()) / 2, 500);
+            btnNextTurn.Position = new Vector2(((combat_background.Get_Width() - btnNextTurn.Get_Width()) / 2) + ((4 - 3) * (btnNextTurn.Get_Width() + 8)) - (btnNextTurn.Get_Width() / 2), 496);
             btnNextTurn.Click += btnNextTurn_Click;
             
             next = btnNextTurn;
@@ -125,14 +126,20 @@ namespace MAAModule
 
         private void btnskill_Click(object sender, EventArgs e)
         {
-            
+            string btnname = ((Button)sender).Get_Name();
+            Console.Out.WriteLine("Skill " + btnname + " was Pressed!!");
+            combat_background = new Background(Content.Load<Texture2D>("Combat_Background/" + Background.Background_035));
         }
 
         private void btnNextTurn_Click(object sender, EventArgs e)
         {
             turnbase[currentturn].YourTurn(false);
 
-            if (currentturn == turnbase.Count - 1) currentturn = 0;
+            if (currentturn == turnbase.Count - 1)
+            {
+                combat_background = new Background(Content.Load<Texture2D>("Combat_Background/" + Background.Background_001));
+                currentturn = 0;
+            }
             else currentturn++;
 
             turnbase[currentturn].YourTurn(true);
@@ -158,15 +165,10 @@ namespace MAAModule
                 Exit();
 
             // TODO: Add your update logic here
-            try
-            {
-                foreach (var component in skillComponents[currentturn])
-                    component.Update(gameTime);
-            }
-            catch
-            {
 
-            }
+            foreach (var component in skillComponents[currentturn])
+                component.Update(gameTime);
+
             next.Update(gameTime);
 
             foreach (var hero in teams)
@@ -190,25 +192,19 @@ namespace MAAModule
             spriteBatch.Begin();
 
             combat_background.Draw(spriteBatch);
-            try
-            {
-                foreach (var component in skillComponents[currentturn])
-                    component.Draw(gameTime, spriteBatch);
-            }
-            catch
-            {
-
-            }
-            next.Draw(gameTime, spriteBatch);
-
-            /*foreach (var avatar in turnbase)
-                avatar.Draw(spriteBatch);*/
-
+            
             foreach (var hero in teams)
                 hero.Draw(spriteBatch);
 
             foreach (var villain in enemies)
                 villain.DrawFlip(spriteBatch);
+            
+            empty_status_bar.Draw(spriteBatch);
+            
+            foreach (var component in skillComponents[currentturn])
+                component.Draw(gameTime, spriteBatch);
+            
+            next.Draw(gameTime, spriteBatch);
 
             spriteBatch.End();
 
