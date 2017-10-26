@@ -37,7 +37,7 @@
 /processorParam:TextureFormat=Color
 /build:Character/Agent/Agent_Recharge.png
 
-#begin Character/Captain_America/Captain_America_Icon_3.png
+#begin Character/Ant-Man/Ant-Man_Icon_1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -47,9 +47,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Captain_America/Captain_America_Icon_3.png
+/build:Character/Ant-Man/Ant-Man_Icon_1.png
 
-#begin Character/Captain_America/Captain_America_Icon_Large_3.png
+#begin Character/Ant-Man/Ant-Man_Icon_Large_1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -59,9 +59,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Captain_America/Captain_America_Icon_Large_3.png
+/build:Character/Ant-Man/Ant-Man_Icon_Large_1.png
 
-#begin Character/Captain_America/Captain_America-Avengers.png
+#begin Character/Ant-Man/Ant-Man-Break_In.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -71,9 +71,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Captain_America/Captain_America-Avengers.png
+/build:Character/Ant-Man/Ant-Man-Break_In.png
 
-#begin Character/Captain_America/Captain_America-Avengers_Age_of_Ultron.png
+#begin Character/Ant-Man/Ant-Man-Greatest_Allies.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -83,9 +83,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Captain_America/Captain_America-Avengers_Age_of_Ultron.png
+/build:Character/Ant-Man/Ant-Man-Greatest_Allies.png
 
-#begin Character/Captain_America/Captain_America-Captain_Steve_Rogers_(High_Res).png
+#begin Character/Ant-Man/Ant-Man-Modern.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -95,9 +95,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Captain_America/Captain_America-Captain_Steve_Rogers_(High_Res).png
+/build:Character/Ant-Man/Ant-Man-Modern.png
 
-#begin Character/Captain_America/Captain_America-Classic.png
+#begin Character/Ant-Man/Ant-Man-Pint-Size_Surprise.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -107,9 +107,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Captain_America/Captain_America-Classic.png
+/build:Character/Ant-Man/Ant-Man-Pint-Size_Surprise.png
 
-#begin Character/Captain_America/Captain_America-Leading_Strike.png
+#begin Character/Ant-Man/Ant-Man-Swarm_Cloud.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -119,9 +119,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Captain_America/Captain_America-Leading_Strike.png
+/build:Character/Ant-Man/Ant-Man-Swarm_Cloud.png
 
-#begin Character/Captain_America/Captain_America-Shield_Bash.png
+#begin Character/Cable/Cable_Icon_1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -131,9 +131,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Captain_America/Captain_America-Shield_Bash.png
+/build:Character/Cable/Cable_Icon_1.png
 
-#begin Character/Captain_America/Captain_America-Shield_Guard.png
+#begin Character/Cable/Cable_Icon_Large_1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -143,9 +143,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Captain_America/Captain_America-Shield_Guard.png
+/build:Character/Cable/Cable_Icon_Large_1.png
 
-#begin Character/Captain_America/Captain_America-Shield_Throw.png
+#begin Character/Cable/Cable-Askani_Arts.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -155,9 +155,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Captain_America/Captain_America-Shield_Throw.png
+/build:Character/Cable/Cable-Askani_Arts.png
 
-#begin Character/Captain_America/Captain_America-WWII.png
+#begin Character/Cable/Cable-Bodyslide.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -167,7 +167,403 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Captain_America/Captain_America-WWII.png
+/build:Character/Cable/Cable-Bodyslide.png
+
+#begin Character/Cable/Cable-Classic.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Cable/Cable-Classic.png
+
+#begin Character/Cable/Cable-Classic_2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Cable/Cable-Classic_2.png
+
+#begin Character/Cable/Cable-Plasma_Rifle.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Cable/Cable-Plasma_Rifle.png
+
+#begin Character/Cable/Cable-Temporal_Shift.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Cable/Cable-Temporal_Shift.png
+
+#begin Character/Captain America/Captain_America_Icon_1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Captain America/Captain_America_Icon_1.png
+
+#begin Character/Captain America/Captain_America_Icon_2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Captain America/Captain_America_Icon_2.png
+
+#begin Character/Captain America/Captain_America_Icon_3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Captain America/Captain_America_Icon_3.png
+
+#begin Character/Captain America/Captain_America_Icon_5.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Captain America/Captain_America_Icon_5.png
+
+#begin Character/Captain America/Captain_America_Icon_Large_1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Captain America/Captain_America_Icon_Large_1.png
+
+#begin Character/Captain America/Captain_America_Icon_Large_2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Captain America/Captain_America_Icon_Large_2.png
+
+#begin Character/Captain America/Captain_America_Icon_Large_3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Captain America/Captain_America_Icon_Large_3.png
+
+#begin Character/Captain America/Captain_America_Icon_Large_5.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Captain America/Captain_America_Icon_Large_5.png
+
+#begin Character/Captain America/Captain_America-Avengers.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Captain America/Captain_America-Avengers.png
+
+#begin Character/Captain America/Captain_America-Avengers_Age_of_Ultron.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Captain America/Captain_America-Avengers_Age_of_Ultron.png
+
+#begin Character/Captain America/Captain_America-Classic.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Captain America/Captain_America-Classic.png
+
+#begin Character/Captain America/Captain_America-Leading_Strike.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Captain America/Captain_America-Leading_Strike.png
+
+#begin Character/Captain America/Captain_America-Shield_Bash.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Captain America/Captain_America-Shield_Bash.png
+
+#begin Character/Captain America/Captain_America-Shield_Guard.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Captain America/Captain_America-Shield_Guard.png
+
+#begin Character/Captain America/Captain_America-Shield_Throw.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Captain America/Captain_America-Shield_Throw.png
+
+#begin Character/Captain America/Captain_America-WWII.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Captain America/Captain_America-WWII.png
+
+#begin Character/Cyclops/Cyclops_Icon_1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Cyclops/Cyclops_Icon_1.png
+
+#begin Character/Cyclops/Cyclops_Icon_2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Cyclops/Cyclops_Icon_2.png
+
+#begin Character/Cyclops/Cyclops_Icon_3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Cyclops/Cyclops_Icon_3.png
+
+#begin Character/Cyclops/Cyclops_Icon_Large_1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Cyclops/Cyclops_Icon_Large_1.png
+
+#begin Character/Cyclops/Cyclops_Icon_Large_2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Cyclops/Cyclops_Icon_Large_2.png
+
+#begin Character/Cyclops/Cyclops_Icon_Large_3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Cyclops/Cyclops_Icon_Large_3.png
+
+#begin Character/Cyclops/Cyclops-Evasive_Maneuvers.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Cyclops/Cyclops-Evasive_Maneuvers.png
+
+#begin Character/Cyclops/Cyclops-Exploit_Weakness.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Cyclops/Cyclops-Exploit_Weakness.png
+
+#begin Character/Cyclops/Cyclops-Mega_Optic_Blast.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Cyclops/Cyclops-Mega_Optic_Blast.png
+
+#begin Character/Cyclops/Cyclops-Modern.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Cyclops/Cyclops-Modern.png
+
+#begin Character/Cyclops/Cyclops-Optic_Blast.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Cyclops/Cyclops-Optic_Blast.png
+
+#begin Character/Cyclops/Cyclops-Phoenix_Five.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Cyclops/Cyclops-Phoenix_Five.png
+
+#begin Character/Cyclops/Cyclops-Uncanny.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Cyclops/Cyclops-Uncanny.png
 
 #begin Character/Deadpool/Deadpool_Icon_1.png
 /importer:TextureImporter
@@ -253,7 +649,7 @@
 /processorParam:TextureFormat=Color
 /build:Character/Deadpool/Deadpool-Sharp_Pointy_Things.png
 
-#begin Character/Dr._Strange/Dr._Strange_Icon_2.png
+#begin Character/Dr. Strange/Dr._Strange_Icon_2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -263,9 +659,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Dr._Strange/Dr._Strange_Icon_2.png
+/build:Character/Dr. Strange/Dr._Strange_Icon_2.png
 
-#begin Character/Dr._Strange/Dr._Strange_Icon_Large_2.png
+#begin Character/Dr. Strange/Dr._Strange_Icon_Large_2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -275,9 +671,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Dr._Strange/Dr._Strange_Icon_Large_2.png
+/build:Character/Dr. Strange/Dr._Strange_Icon_Large_2.png
 
-#begin Character/Dr._Strange/Dr._Strange-Bolts_of_Balthakk.png
+#begin Character/Dr. Strange/Dr._Strange-Bolts_of_Balthakk.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -287,9 +683,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Dr._Strange/Dr._Strange-Bolts_of_Balthakk.png
+/build:Character/Dr. Strange/Dr._Strange-Bolts_of_Balthakk.png
 
-#begin Character/Dr._Strange/Dr._Strange-Classic.png
+#begin Character/Dr. Strange/Dr._Strange-Classic.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -299,9 +695,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Dr._Strange/Dr._Strange-Classic.png
+/build:Character/Dr. Strange/Dr._Strange-Classic.png
 
-#begin Character/Dr._Strange/Dr._Strange-Modern.png
+#begin Character/Dr. Strange/Dr._Strange-Modern.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -311,9 +707,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Dr._Strange/Dr._Strange-Modern.png
+/build:Character/Dr. Strange/Dr._Strange-Modern.png
 
-#begin Character/Dr._Strange/Dr._Strange-Shield_of_the_Seraphim.png
+#begin Character/Dr. Strange/Dr._Strange-Shield_of_the_Seraphim.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -323,9 +719,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Dr._Strange/Dr._Strange-Shield_of_the_Seraphim.png
+/build:Character/Dr. Strange/Dr._Strange-Shield_of_the_Seraphim.png
 
-#begin Character/Dr._Strange/Dr._Strange-Teresing_Boost.png
+#begin Character/Dr. Strange/Dr._Strange-Teresing_Boost.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -335,9 +731,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Dr._Strange/Dr._Strange-Teresing_Boost.png
+/build:Character/Dr. Strange/Dr._Strange-Teresing_Boost.png
 
-#begin Character/Dr._Strange/Dr._Strange-Vapors_of_Valtorr.png
+#begin Character/Dr. Strange/Dr._Strange-Vapors_of_Valtorr.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -347,9 +743,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Dr._Strange/Dr._Strange-Vapors_of_Valtorr.png
+/build:Character/Dr. Strange/Dr._Strange-Vapors_of_Valtorr.png
 
-#begin Character/Hela/Hela.png
+#begin Character/Ghost Rider/Ghost_Rider_Icon_1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -359,9 +755,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Hela/Hela.png
+/build:Character/Ghost Rider/Ghost_Rider_Icon_1.png
 
-#begin Character/Hela/Hela_Icon.png
+#begin Character/Ghost Rider/Ghost_Rider_Icon_2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -371,9 +767,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Hela/Hela_Icon.png
+/build:Character/Ghost Rider/Ghost_Rider_Icon_2.png
 
-#begin Character/Iron_Man/Iron_Man_Icon_5.png
+#begin Character/Ghost Rider/Ghost_Rider_Icon_Large_1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -383,9 +779,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Iron_Man/Iron_Man_Icon_5.png
+/build:Character/Ghost Rider/Ghost_Rider_Icon_Large_1.png
 
-#begin Character/Iron_Man/Iron_Man_Icon_Large_5.png
+#begin Character/Ghost Rider/Ghost_Rider_Icon_Large_2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -395,9 +791,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Iron_Man/Iron_Man_Icon_Large_5.png
+/build:Character/Ghost Rider/Ghost_Rider_Icon_Large_2.png
 
-#begin Character/Iron_Man/Iron_Man-Avengers.png
+#begin Character/Ghost Rider/Ghost_Rider-Are_You_Worthy_.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -407,9 +803,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Iron_Man/Iron_Man-Avengers.png
+/build:Character/Ghost Rider/Ghost_Rider-Are_You_Worthy_.png
 
-#begin Character/Iron_Man/Iron_Man-Avengers_Age_of_Ultron.png
+#begin Character/Ghost Rider/Ghost_Rider-Burn_Out.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -419,9 +815,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Iron_Man/Iron_Man-Avengers_Age_of_Ultron.png
+/build:Character/Ghost Rider/Ghost_Rider-Burn_Out.png
 
-#begin Character/Iron_Man/Iron_Man-Breaking_Up.png
+#begin Character/Ghost Rider/Ghost_Rider-Chains_of_Greithoth.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -431,9 +827,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Iron_Man/Iron_Man-Breaking_Up.png
+/build:Character/Ghost Rider/Ghost_Rider-Chains_of_Greithoth.png
 
-#begin Character/Iron_Man/Iron_Man-Calling_Veronica.png
+#begin Character/Ghost Rider/Ghost_Rider-Classic.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -443,9 +839,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Iron_Man/Iron_Man-Calling_Veronica.png
+/build:Character/Ghost Rider/Ghost_Rider-Classic.png
 
-#begin Character/Iron_Man/Iron_Man-Deflector_Shield.png
+#begin Character/Ghost Rider/Ghost_Rider-Damnation_Chains.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -455,9 +851,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Iron_Man/Iron_Man-Deflector_Shield.png
+/build:Character/Ghost Rider/Ghost_Rider-Damnation_Chains.png
 
-#begin Character/Iron_Man/Iron_Man-Deploy_Rockets.png
+#begin Character/Ghost Rider/Ghost_Rider-Feel_The_Burn.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -467,9 +863,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Iron_Man/Iron_Man-Deploy_Rockets.png
+/build:Character/Ghost Rider/Ghost_Rider-Feel_The_Burn.png
 
-#begin Character/Iron_Man/Iron_Man-Heartbreaker_Unibeam.png
+#begin Character/Ghost Rider/Ghost_Rider-Greithoth.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -479,9 +875,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Iron_Man/Iron_Man-Heartbreaker_Unibeam.png
+/build:Character/Ghost Rider/Ghost_Rider-Greithoth.png
 
-#begin Character/Iron_Man/Iron_Man-High_Energy_Laser.png
+#begin Character/Ghost Rider/Ghost_Rider-Highway_to_Hell.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -491,9 +887,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Iron_Man/Iron_Man-High_Energy_Laser.png
+/build:Character/Ghost Rider/Ghost_Rider-Highway_to_Hell.png
 
-#begin Character/Iron_Man/Iron_Man-Hulkbuster.png
+#begin Character/Ghost Rider/Ghost_Rider-Penance_Stare.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -503,9 +899,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Iron_Man/Iron_Man-Hulkbuster.png
+/build:Character/Ghost Rider/Ghost_Rider-Penance_Stare.png
 
-#begin Character/Iron_Man/Iron_Man-Iron_Pummel.png
+#begin Character/Ghost Rider/Ghost_Rider-Will_Breaker.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -515,9 +911,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Iron_Man/Iron_Man-Iron_Pummel.png
+/build:Character/Ghost Rider/Ghost_Rider-Will_Breaker.png
 
-#begin Character/Iron_Man/Iron_Man-Iron_Smash.png
+#begin Character/Hulk/Hulk_Icon_1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -527,9 +923,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Iron_Man/Iron_Man-Iron_Smash.png
+/build:Character/Hulk/Hulk_Icon_1.png
 
-#begin Character/Iron_Man/Iron_Man-Missile_Barrage.png
+#begin Character/Hulk/Hulk_Icon_2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -539,9 +935,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Iron_Man/Iron_Man-Missile_Barrage.png
+/build:Character/Hulk/Hulk_Icon_2.png
 
-#begin Character/Iron_Man/Iron_Man-Missile_Bombardment.png
+#begin Character/Hulk/Hulk_Icon_3.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -551,9 +947,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Iron_Man/Iron_Man-Missile_Bombardment.png
+/build:Character/Hulk/Hulk_Icon_3.png
 
-#begin Character/Iron_Man/Iron_Man-Mk_42_Armor.png
+#begin Character/Hulk/Hulk_Icon_4.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -563,9 +959,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Iron_Man/Iron_Man-Mk_42_Armor.png
+/build:Character/Hulk/Hulk_Icon_4.png
 
-#begin Character/Iron_Man/Iron_Man-Penetrator_Rockets.png
+#begin Character/Hulk/Hulk_Icon_5.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -575,9 +971,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Iron_Man/Iron_Man-Penetrator_Rockets.png
+/build:Character/Hulk/Hulk_Icon_5.png
 
-#begin Character/Iron_Man/Iron_Man-Repulsor_Blast.png
+#begin Character/Hulk/Hulk_Icon_Large_1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -587,9 +983,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Iron_Man/Iron_Man-Repulsor_Blast.png
+/build:Character/Hulk/Hulk_Icon_Large_1.png
 
-#begin Character/Iron_Man/Iron_Man-Repulsor_Cannons.png
+#begin Character/Hulk/Hulk_Icon_Large_2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -599,9 +995,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Iron_Man/Iron_Man-Repulsor_Cannons.png
+/build:Character/Hulk/Hulk_Icon_Large_2.png
 
-#begin Character/Iron_Man/Iron_Man-Repulsor_Ray.png
+#begin Character/Hulk/Hulk_Icon_Large_3.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -611,9 +1007,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Iron_Man/Iron_Man-Repulsor_Ray.png
+/build:Character/Hulk/Hulk_Icon_Large_3.png
 
-#begin Character/Iron_Man/Iron_Man-Rocket_Barrage.png
+#begin Character/Hulk/Hulk_Icon_Large_4.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -623,9 +1019,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Iron_Man/Iron_Man-Rocket_Barrage.png
+/build:Character/Hulk/Hulk_Icon_Large_4.png
 
-#begin Character/Iron_Man/Iron_Man-Unibeam.png
+#begin Character/Hulk/Hulk_Icon_Large_5.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -635,9 +1031,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Iron_Man/Iron_Man-Unibeam.png
+/build:Character/Hulk/Hulk_Icon_Large_5.png
 
-#begin Character/Sin/Sin.png
+#begin Character/Hulk/Hulk-Avengers.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -647,9 +1043,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Sin/Sin.png
+/build:Character/Hulk/Hulk-Avengers.png
 
-#begin Character/Sin/Sin_Icon.png
+#begin Character/Hulk/Hulk-Avengers_Age_of_Ultron.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -659,9 +1055,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Sin/Sin_Icon.png
+/build:Character/Hulk/Hulk-Avengers_Age_of_Ultron.png
 
-#begin Character/Spider-Man/Spider-Man-Amazing.png
+#begin Character/Hulk/Hulk-Giant-Size_Hulk_Smash.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -671,9 +1067,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Spider-Man/Spider-Man-Amazing.png
+/build:Character/Hulk/Hulk-Giant-Size_Hulk_Smash.png
 
-#begin Character/Spider-Man/Spider-Man-Black_Suit.png
+#begin Character/Hulk/Hulk-Grey.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -683,9 +1079,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Spider-Man/Spider-Man-Black_Suit.png
+/build:Character/Hulk/Hulk-Grey.png
 
-#begin Character/Spider-Man/Spider-Man-Classic.png
+#begin Character/Hulk/Hulk-Incredible_Rage_Punch.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -695,9 +1091,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Spider-Man/Spider-Man-Classic.png
+/build:Character/Hulk/Hulk-Incredible_Rage_Punch.png
 
-#begin Character/Spider-Man/Spider-Man-Future_Foundation.png
+#begin Character/Hulk/Hulk-Indestructible_Titanic_Hurl.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -707,9 +1103,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Spider-Man/Spider-Man-Future_Foundation.png
+/build:Character/Hulk/Hulk-Indestructible_Titanic_Hurl.png
 
-#begin Character/Spider-Man/Spider-Man-Spider-Sense.png
+#begin Character/Hulk/Hulk-Monster-Size_Thunder_Clap.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -719,9 +1115,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Spider-Man/Spider-Man-Spider-Sense.png
+/build:Character/Hulk/Hulk-Monster-Size_Thunder_Clap.png
 
-#begin Character/Spider-Man/Spider-Man-Web_Shot.png
+#begin Character/Hulk/Hulk-Savage.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -731,9 +1127,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Spider-Man/Spider-Man-Web_Shot.png
+/build:Character/Hulk/Hulk-Savage.png
 
-#begin Character/Spider-Man/Spider-Man-Web_Slingshot.png
+#begin Character/Hulk/Hulk-World_War.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -743,91 +1139,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Spider-Man/Spider-Man-Web_Slingshot.png
-
-#begin Character/Spider-Man/Spider-Man-Web_Swing.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Character/Spider-Man/Spider-Man-Web_Swing.png
-
-#begin Character/Thanos/Thanos.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Character/Thanos/Thanos.png
-
-#begin Character/Thanos/Thanos_(Blaster).png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Character/Thanos/Thanos_(Blaster).png
-
-#begin Character/Thanos/Thanos_(Infiltrator).png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Character/Thanos/Thanos_(Infiltrator).png
-
-#begin Character/Thanos/Thanos_(Scrapper).png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Character/Thanos/Thanos_(Scrapper).png
-
-#begin Character/Thanos/Thanos_(Tactician).png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Character/Thanos/Thanos_(Tactician).png
-
-#begin Character/Thanos/Thanos_Icon.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Character/Thanos/Thanos_Icon.png
+/build:Character/Hulk/Hulk-World_War.png
 
 #begin Class/Blaster.png
 /importer:TextureImporter

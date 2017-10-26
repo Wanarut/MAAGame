@@ -17,8 +17,8 @@ namespace MAAModule
         protected int width;
         protected int height;
 
-        private List<Character> heroes = new List<Character>();
-        private List<Character> villains = new List<Character>();
+        private List<Character> teams = new List<Character>();
+        private List<Character> enemies = new List<Character>();
         private List<List<Component>> skillComponents = new List<List<Component>>();
         private Component next;
         private Component btn_1st_skill;
@@ -45,38 +45,16 @@ namespace MAAModule
         /// </summary>
         protected override void Initialize()
         {
+            Skill skill_lib = new Skill();
             //Start with 3 your Heroes and set hero's state
-            heroes.Add(new Character(Character.DrStrange, "Dr._Strange-Modern"));
-            heroes[0].setState(2, 1, 5, 1, 5, 2, Character.CLASS_Infiltrator);
-
-            heroes.Add(new Character(Character.Iron_Man, "Iron_Man-Mk_42_Armor"));
-            heroes[1].setState(2, 2, 4, 4, 3, 2, Character.CLASS_Blaster);
-
-            heroes.Add(new Character(Character.Deadpool, "Deadpool-Classic"));
-            heroes[2].setState(4, 2, 5, 3, 3, 2, Character.CLASS_Scrapper);
-            
-            //set hero's skills and skill poperties
-            heroes[0].skills.Add(new Skill("Dr._Strange-Bolts_of_Balthakk", 1, 1, 1, 1, 1));
-            heroes[0].skills.Add(new Skill("Dr._Strange-Shield_of_the_Seraphim", 1, 1, 1, 1, 1));
-            heroes[0].skills.Add(new Skill("Dr._Strange-Teresing_Boost", 1, 1, 1, 1, 1));
-            heroes[0].skills.Add(new Skill("Dr._Strange-Vapors_of_Valtorr", 1, 1, 1, 1, 1));
-
-            heroes[1].skills.Add(new Skill("Iron_Man-Repulsor_Cannons", 1, 1, 1, 1, 1));
-            heroes[1].skills.Add(new Skill("Iron_Man-Missile_Bombardment", 1, 1, 1, 1, 1));
-            heroes[1].skills.Add(new Skill("Iron_Man-High_Energy_Laser", 1, 1, 1, 1, 1));
-            heroes[1].skills.Add(new Skill("Iron_Man-Heartbreaker_Unibeam", 1, 1, 1, 1, 1));
-
-            heroes[2].skills.Add(new Skill("Deadpool-Bang_Bang_Bang!", 1, 1, 1, 1, 1));
-            heroes[2].skills.Add(new Skill("Deadpool-No_Holds_Barred", 1, 1, 1, 1, 1));
-            heroes[2].skills.Add(new Skill("Deadpool-Sharp_Pointy_Things", 1, 1, 1, 1, 1));
-            heroes[2].skills.Add(new Skill("Deadpool-Happy_to_See_You", 1, 1, 1, 1, 1));
+            teams.Add(Character.Dr_Strange);
+            teams.Add(Character.Ant_Man);
+            teams.Add(Character.Deadpool);
             //Set 3 Villains and set villain's state
-            villains.Add(new Character(Character.Hela, "Hela"));
-            villains[0].setState(5, 1, 3, 3, 4, 4, Character.CLASS_Tactician);
-            villains.Add(new Character(Character.Sin, "Sin"));
-            villains[1].setState(4, 4, 5, 3, 3, 4, Character.CLASS_Blaster);
-            villains.Add(new Character(Character.Thanos, "Thanos"));
-            villains[2].setState(4, 3, 4, 2, 5, 3, Character.CLASS_Bruiser);
+            enemies.Add(Character.Hulk);
+            enemies.Add(Character.Cable);
+            enemies.Add(Character.Captain_America);
+
             //Set background
             combat_background = new Background("Combat_Background_024");
             
@@ -96,23 +74,36 @@ namespace MAAModule
 
             setWindows_size(combat_background.Get_Width(), combat_background.Get_Height());
             
-            for (int i = 0; i < heroes.Count; i++)
+            for (int i = 0; i < teams.Count; i++)
             {
                 List<Component> temp = new List<Component>();
-                for (int j = 0; j < heroes[i].skills.Count; j++)
+                for (int j = 0; j < teams[i].skills.Count; j++)
                 {
-                    var btnskill = new Button(Content.Load<Texture2D>("Character/" + heroes[i].Get_Name() + "/" + heroes[i].skills[j].Get_Name()));
+                    var btnskill = new Button(Content.Load<Texture2D>("Character/" + teams[i].Get_Name() + "/" + teams[i].skills[j].Get_Name()));
                     btnskill.Position = new Vector2(((combat_background.Get_Width() - btnskill.Get_Width()) / 2) + ((j - 2) * (btnskill.Get_Width() + 50)) + 50, 450);
                     temp.Add(btnskill);
                     btnskill.Click += btnskill_Click;
                 }
                 skillComponents.Add(temp);
 
-                heroes[i] = new Character(Content.Load<Texture2D>("Character/" + heroes[i].Get_Name() + "/" + heroes[i].Get_subName()));
-                heroes[i].position = new Vector2(40 + ((i % 2) * 150) - (i * 10), 330 + (i * 70) - heroes[i].Get_Height());
-                
-                villains[i] = new Character(Content.Load<Texture2D>("Character/" + villains[i].Get_Name() + "/" + villains[i].Get_subName()));
-                villains[i].position = new Vector2(width - 40 - ((i % 2) * 150) + (i * 10) - villains[i].Get_Width(), 330 + (i * 70) - villains[i].Get_Height());
+                teams[i] = new Character(Content.Load<Texture2D>("Character/" + teams[i].Get_Name() + "/" + teams[i].Get_subName()));
+                teams[i].position = new Vector2(40 + ((i % 2) * 150) - (i * 10), 330 + (i * 70) - teams[i].Get_Height());
+            }
+
+            for (int i = 0; i < teams.Count; i++)
+            {
+                List<Component> temp = new List<Component>();
+                for (int j = 0; j < enemies[i].skills.Count; j++)
+                {
+                    var btnskill = new Button(Content.Load<Texture2D>("Character/" + enemies[i].Get_Name() + "/" + enemies[i].skills[j].Get_Name()));
+                    btnskill.Position = new Vector2(((combat_background.Get_Width() - btnskill.Get_Width()) / 2) + ((j - 2) * (btnskill.Get_Width() + 50)) + 50, 450);
+                    temp.Add(btnskill);
+                    btnskill.Click += btnskill_Click;
+                }
+                skillComponents.Add(temp);
+
+                enemies[i] = new Character(Content.Load<Texture2D>("Character/" + enemies[i].Get_Name() + "/" + enemies[i].Get_subName()));
+                enemies[i].position = new Vector2(width - 40 - ((i % 2) * 150) + (i * 10) - enemies[i].Get_Width(), 330 + (i * 70) - enemies[i].Get_Height());
             }
 
             var btnNextTurn = new Button(Content.Load<Texture2D>("Character/Agent/Agent_Recharge"));
@@ -122,10 +113,10 @@ namespace MAAModule
             next = btnNextTurn;
 
             //set turn base
-            foreach (Character avatar in heroes)
+            foreach (Character avatar in teams)
                 turnbase.Add(avatar);
 
-            foreach (Character avatar in villains)
+            foreach (Character avatar in enemies)
                 turnbase.Add(avatar);
 
             turnbase[0].YourTurn(true);
@@ -178,10 +169,10 @@ namespace MAAModule
             }
             next.Update(gameTime);
 
-            foreach (var hero in heroes)
+            foreach (var hero in teams)
                 hero.Update();
 
-            foreach (var villain in villains)
+            foreach (var villain in enemies)
                 villain.Update();
 
             base.Update(gameTime);
@@ -210,14 +201,14 @@ namespace MAAModule
             }
             next.Draw(gameTime, spriteBatch);
 
-            foreach (var avatar in turnbase)
-                avatar.Draw(spriteBatch);
+            /*foreach (var avatar in turnbase)
+                avatar.Draw(spriteBatch);*/
 
-            /*foreach (var hero in heroes)
+            foreach (var hero in teams)
                 hero.Draw(spriteBatch);
 
-            foreach (var villain in villains)
-                villain.Draw(spriteBatch);*/
+            foreach (var villain in enemies)
+                villain.DrawFlip(spriteBatch);
 
             spriteBatch.End();
 

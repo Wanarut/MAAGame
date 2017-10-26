@@ -20,18 +20,15 @@ namespace MAAModule
         public const int CLASS_Tactician = 5;
         #endregion
 
-        #region Heroes
-        public const string Deadpool = "Deadpool";
-        public const string Captain_America = "Captain_America";
-        public const string DrStrange = "Dr._Strange";
-        public const string Iron_Man = "Iron_Man";
-        public const string SpiderMan = "Spider-Man";
-        #endregion
-
-        #region Villains
-        public const string Hela = "Hela";
-        public const string Sin = "Sin";
-        public const string Thanos = "Thanos";
+        #region Heroes Data
+        public static Character Dr_Strange = new Character("Dr. Strange", "Dr._Strange-Classic", 6438, 5722, 1717, 1144, 1717, 1288, Character.CLASS_Tactician);
+        public static Character Deadpool = new Character("Deadpool", "Deadpool-Classic", 7868, 6438, 1717, 1431, 1431, 1288, Character.CLASS_Scrapper);
+        public static Character Captain_America = new Character("Captain America", "Captain_America-Classic", 7153, 7153, 1431, 1431, 1574, 1288, Character.CLASS_Generalist);
+        public static Character Cable = new Character("Cable", "Cable-Classic", 7153, 5722, 1574, 1574, 1431, 1144, Character.CLASS_Blaster);
+        public static Character Ghost_Rider = new Character("Ghost Rider", "Ghost_Rider-Classic", 6438, 7153, 1574, 1431, 1574, 1288, Character.CLASS_Scrapper);
+        public static Character Cyclops = new Character("Cyclops", "Cyclops-Modern", 7153, 7153, 1431, 1431, 1574, 1288, Character.CLASS_Tactician);
+        public static Character Ant_Man = new Character("Ant-Man", "Ant-Man-Modern", 6438, 7868, 1431, 1288, 1431, 1574, Character.CLASS_Infiltrator);
+        public static Character Hulk = new Character("Hulk", "Hulk-Savage", 8584, 6438, 1574, 1574, 1144, 1144, Character.CLASS_Bruiser);
         #endregion
 
         #region Fields
@@ -61,19 +58,15 @@ namespace MAAModule
         public List<Skill> skills = new List<Skill>();
         #endregion
 
-        public Character(string name, string sub_name)
+        public Character()
+        {
+
+        }
+
+        public Character(string name, string sub_name, int health, int stamina, int attack, int defense, int accuracy, int evasion, int type)
         {
             this.name = name;
             this.sub_name = sub_name;
-        }
-
-        public Character(Texture2D texture)
-        {
-            this.texture = texture;
-        }
-
-        public void setState(int health, int stamina, int attack, int defense, int accuracy, int evasion, int type)
-        {
             this.health = health;
             this.stamina = stamina;
             this.attack = attack;
@@ -81,6 +74,16 @@ namespace MAAModule
             this.accuracy = accuracy;
             this.evasion = evasion;
             this.type = type;
+        }
+
+        public Character(Texture2D texture)
+        {
+            this.texture = texture;
+        }
+        
+        public void Alternate_Uniform(string suit_name)
+        {
+            sub_name = suit_name;
         }
 
         public string Get_Name()
@@ -142,6 +145,12 @@ namespace MAAModule
         {
             if(myturn) spriteBatch.Draw(texture, position, Color.White);
             else spriteBatch.Draw(texture, position, Color.Gray);
+        }
+
+        public void DrawFlip(SpriteBatch spriteBatch)
+        {
+            if (myturn) spriteBatch.Draw(texture, position, null, null, null, 0, null, Color.White, SpriteEffects.FlipHorizontally, 0);
+            else spriteBatch.Draw(texture, position, null, null, null, 0, null, Color.Gray, SpriteEffects.FlipHorizontally, 0);
         }
     }
 }
