@@ -41,7 +41,7 @@ namespace MAAModule
         private int accuracy;
         private int evasion;
         private int type;
-        private bool myturn = false;
+        private bool focus = false;
 
         protected float rotation;
         protected Texture2D texture;
@@ -81,9 +81,10 @@ namespace MAAModule
             this.texture = texture;
         }
         
-        public void Alternate_Uniform(string suit_name)
+        public Character Alternate_Uniform(string suit_name)
         {
             sub_name = suit_name;
+            return this;
         }
 
         public string Get_Name()
@@ -113,12 +114,12 @@ namespace MAAModule
 
         public void YourTurn(bool logic)
         {
-            myturn = logic;
+            focus = logic;
         }
 
         public bool YourTurn()
         {
-            return myturn;
+            return focus;
         }
 
         public void Move()
@@ -143,13 +144,13 @@ namespace MAAModule
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if(myturn) spriteBatch.Draw(texture, position, Color.White);
+            if(focus) spriteBatch.Draw(texture, position, Color.White);
             else spriteBatch.Draw(texture, position, Color.Gray);
         }
 
         public void DrawFlip(SpriteBatch spriteBatch)
         {
-            if (myturn) spriteBatch.Draw(texture, position, null, null, null, 0, null, Color.White, SpriteEffects.FlipHorizontally, 0);
+            if (focus) spriteBatch.Draw(texture, position, null, null, null, 0, null, Color.White, SpriteEffects.FlipHorizontally, 0);
             else spriteBatch.Draw(texture, position, null, null, null, 0, null, Color.Gray, SpriteEffects.FlipHorizontally, 0);
         }
     }

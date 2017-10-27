@@ -11,6 +11,7 @@ namespace MAAModule
     /// </summary>
     public class MAAGame : Game
     {
+        #region Fields
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
@@ -26,6 +27,7 @@ namespace MAAModule
 
         Background combat_background;
         Background empty_status_bar;
+        #endregion
 
         public MAAGame()
         {
@@ -44,15 +46,19 @@ namespace MAAModule
         {
             Skill skill_lib = new Skill();
             //Start with 3 your Heroes and set hero's state
+            //teams.Add(Character.Dr_Strange.Alternate_Uniform("Dr._Strange-Modern"));
             teams.Add(Character.Dr_Strange);
             teams.Add(Character.Ant_Man);
+            //teams.Add(Character.Ant_Man.Alternate_Uniform("Ant-Man-Modern_Stand"));
             teams.Add(Character.Deadpool);
             //Set 3 Villains and set villain's state
+            //enemies.Add(Character.Hulk.Alternate_Uniform(Suit.Hulk_World_War));
             enemies.Add(Character.Hulk);
             enemies.Add(Character.Cable);
-            enemies.Add(Character.Captain_America);
+            enemies.Add(Character.Captain_America.Alternate_Uniform(Suit.Captain_America_Avengers));
             //Set background
-            
+            combat_background = new Background(Content.Load<Texture2D>(Background.Background_010));
+
             base.Initialize();
         }
 
@@ -65,13 +71,11 @@ namespace MAAModule
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            combat_background = new Background(Content.Load<Texture2D>("Combat_Background/" + Background.Background_024));
-
             empty_status_bar = new Background(Content.Load<Texture2D>("Character/Agent/Empty_status_bar"));
             empty_status_bar.position = new Vector2(0, 630 - empty_status_bar.Get_Height());
 
             setWindows_size(width, height);
-            
+            //Load skill team
             for (int i = 0; i < teams.Count; i++)
             {
                 List<Component> temp = new List<Component>();
@@ -88,8 +92,8 @@ namespace MAAModule
                 teams[i] = new Character(Content.Load<Texture2D>("Character/" + teams[i].Get_Name() + "/" + teams[i].Get_subName()));
                 teams[i].position = new Vector2(40 + ((i % 2) * 150) - (i * 10), 330 + (i * 70) - teams[i].Get_Height());
             }
-
-            for (int i = 0; i < teams.Count; i++)
+            //Load skill enemies
+            for (int i = 0; i < enemies.Count; i++)
             {
                 List<Component> temp = new List<Component>();
                 for (int j = 0; j < enemies[i].skills.Count; j++)
@@ -107,17 +111,29 @@ namespace MAAModule
             }
 
             //next turn btn
-            var btnNextTurn = new Button(Content.Load<Texture2D>("Character/Agent/" + Button.Agent_Recharge));
-            btnNextTurn.Position = new Vector2(((combat_background.Get_Width() - btnNextTurn.Get_Width()) / 2) + ((4 - 3) * (btnNextTurn.Get_Width() + 8)) - (btnNextTurn.Get_Width() / 2), 496);
+            var btnNextTurn = new Button(Content.Load<Texture2D>(Button.Agent_Recharge));
+            btnNextTurn.Position = new Vector2(((combat_background.Get_Width() - btnNextTurn.Get_Width()) / 2) + ((4 - 0) * (btnNextTurn.Get_Width() + 8)) - (btnNextTurn.Get_Width() / 2), 496);
             menuComponent.Add(btnNextTurn);
             btnNextTurn.Set_btn_Name(Button.Agent_Recharge);
             btnNextTurn.Click += btnMenu_Click;
 
-            var btnInventory = new Button(Content.Load<Texture2D>("Character/Agent/" + Button.Agent_Inventory));
-            btnInventory.Position = new Vector2(((combat_background.Get_Width() - btnInventory.Get_Width()) / 2) + ((4 - 2) * (btnInventory.Get_Width() + 8)) - (btnInventory.Get_Width() / 2), 496);
+            var btnInventory = new Button(Content.Load<Texture2D>(Button.Agent_Inventory));
+            btnInventory.Position = new Vector2(((combat_background.Get_Width() - btnInventory.Get_Width()) / 2) + ((4 - 1) * (btnInventory.Get_Width() + 8)) - (btnInventory.Get_Width() / 2), 496);
             menuComponent.Add(btnInventory);
             btnInventory.Set_btn_Name(Button.Agent_Inventory);
             btnInventory.Click += btnMenu_Click;
+
+            var btnCall = new Button(Content.Load<Texture2D>(Button.Agent_Distress_Call));
+            btnCall.Position = new Vector2(((combat_background.Get_Width() - btnCall.Get_Width()) / 2) + ((4 - 2) * (btnCall.Get_Width() + 8)) - (btnCall.Get_Width() / 2), 496);
+            menuComponent.Add(btnCall);
+            btnCall.Set_btn_Name(Button.Agent_Distress_Call);
+            btnCall.Click += btnMenu_Click;
+
+            var btnArc = new Button(Content.Load<Texture2D>(Button.Arc_Reactor_Charge));
+            btnArc.Position = new Vector2(((combat_background.Get_Width() - btnArc.Get_Width()) / 2) + ((4 - 3) * (btnArc.Get_Width() + 8)) - (btnArc.Get_Width() / 2), 496);
+            menuComponent.Add(btnArc);
+            btnArc.Set_btn_Name(Button.Arc_Reactor_Charge);
+            btnArc.Click += btnMenu_Click;
 
             //set turn base
             foreach (Character avatar in teams)
@@ -178,6 +194,7 @@ namespace MAAModule
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            base.Update(gameTime);
             // TODO: Add your update logic here
 
             foreach (var component in skillComponents[currentturn])

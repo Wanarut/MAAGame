@@ -11,9 +11,14 @@ namespace MAAModule
 {
     class Button : Component
     {
-        #region
-        public const string Agent_Recharge = "Agent_Recharge";
-        public const string Agent_Inventory = "Agent_Inventory";
+        #region Menu Data
+        public const string Agent_Recharge = "Character/Agent/Agent_Recharge";
+        public const string Agent_Inventory = "Character/Agent/Agent_Inventory";
+        public const string Agent_Distress_Call = "Character/Agent/Agent_Distress_Call";
+        public const string Agent_Weapon_Slot = "Character/Agent/Agent_Weapon_Slot";
+        public const string Arc_Reactor_Charge = "Character/Agent/Arc_Reactor_Charge";
+        public const string Curative_Measure = "Character/Agent/Curative_Measure";
+        public const string Staff_of_Asklepios = "Character/Agent/Staff_of_Asklepios";
         #endregion
 
         private MouseState currentMouse;
@@ -23,6 +28,7 @@ namespace MAAModule
         private string name;
 
         public event EventHandler Click;
+        public float rotation = 0;
 
         public bool Clicked { get; private set; }
 

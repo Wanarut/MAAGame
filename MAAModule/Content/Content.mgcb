@@ -13,6 +13,18 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin Character/Agent/Agent_Distress_Call.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Agent/Agent_Distress_Call.png
+
 #begin Character/Agent/Agent_Inventory.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -37,6 +49,54 @@
 /processorParam:TextureFormat=Color
 /build:Character/Agent/Agent_Recharge.png
 
+#begin Character/Agent/Agent_Weapon_Slot.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Agent/Agent_Weapon_Slot.png
+
+#begin Character/Agent/Agent_Weapon_Slot.psd
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Agent/Agent_Weapon_Slot.psd
+
+#begin Character/Agent/Arc_Reactor_Charge.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Agent/Arc_Reactor_Charge.png
+
+#begin Character/Agent/Curative_Measure.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Agent/Curative_Measure.png
+
 #begin Character/Agent/Empty_status_bar.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -60,6 +120,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Character/Agent/Empty_status_bar.psd
+
+#begin Character/Agent/Staff_of_Asklepios.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Agent/Staff_of_Asklepios.png
+
+#begin Character/Ant-Man/Ant-Man_anime.psd
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Ant-Man/Ant-Man_anime.psd
 
 #begin Character/Ant-Man/Ant-Man_Icon_1.png
 /importer:TextureImporter
@@ -120,6 +204,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Character/Ant-Man/Ant-Man-Modern.png
+
+#begin Character/Ant-Man/Ant-Man-Modern_Stand.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Ant-Man/Ant-Man-Modern_Stand.gif
 
 #begin Character/Ant-Man/Ant-Man-Pint-Size_Surprise.png
 /importer:TextureImporter
@@ -589,6 +685,30 @@
 /processorParam:TextureFormat=Color
 /build:Character/Cyclops/Cyclops-Uncanny.png
 
+#begin Character/Deadpool/Deadpool_Dialogue_1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Deadpool/Deadpool_Dialogue_1.png
+
+#begin Character/Deadpool/Deadpool_Dialogue_2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Deadpool/Deadpool_Dialogue_2.png
+
 #begin Character/Deadpool/Deadpool_Icon_1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -672,6 +792,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Character/Deadpool/Deadpool-Sharp_Pointy_Things.png
+
+#begin Character/Deadpool/Deadpool-Uncanny_X-Force.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Deadpool/Deadpool-Uncanny_X-Force.png
 
 #begin Character/Dr. Strange/Dr._Strange_Icon_2.png
 /importer:TextureImporter
