@@ -1,0 +1,5 @@
+time gif 4 sec
+119 frame
+30 fps
+17 column
+7 row

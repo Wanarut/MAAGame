@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using System;
+using AnimatedSprite;
 
 namespace MAAModule
 {
@@ -28,12 +29,21 @@ namespace MAAModule
         Background combat_background;
         Background empty_status_bar;
         #endregion
+        
+        private AnimatedTexture SpriteTexture;
+        private const float Rotation = 0;
+        private const float Scale = 1;
+        private const float Depth = 0;
 
         public MAAGame()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+
+            SpriteTexture = new AnimatedTexture(Vector2.Zero,Rotation, Scale, Depth);
+            // Frame rate is 30 fps by default for Zune.
+            TargetElapsedTime = TimeSpan.FromSeconds(1 / 15.0);
         }
 
         /// <summary>
@@ -62,6 +72,12 @@ namespace MAAModule
             base.Initialize();
         }
 
+        private Viewport viewport;
+        private Vector2 shipPos;
+        private const int framerate = 15;
+        private const int action_time = 5;
+        private const int FramesPerSec = 15;
+
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
         /// all of your content.
@@ -70,6 +86,10 @@ namespace MAAModule
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            SpriteTexture.Load(Content, "shipanimated", framerate, action_time, FramesPerSec);
+            viewport = graphics.GraphicsDevice.Viewport;
+            shipPos = new Vector2(viewport.Width / 2, viewport.Height / 2);
 
             empty_status_bar = new Background(Content.Load<Texture2D>("Character/Agent/Empty_status_bar"));
             empty_status_bar.position = new Vector2(0, 630 - empty_status_bar.Get_Height());
@@ -194,7 +214,9 @@ namespace MAAModule
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            base.Update(gameTime);
+            SpriteTexture.Play();
+            float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            SpriteTexture.UpdateFrame(elapsed);
             // TODO: Add your update logic here
 
             foreach (var component in skillComponents[currentturn])
@@ -203,11 +225,11 @@ namespace MAAModule
             foreach (var component in menuComponent)
                 component.Update(gameTime);
 
-            foreach (var hero in teams)
+            /*foreach (var hero in teams)
                 hero.Update();
 
             foreach (var villain in enemies)
-                villain.Update();
+                villain.Update();*/
 
             base.Update(gameTime);
         }
@@ -224,13 +246,15 @@ namespace MAAModule
             spriteBatch.Begin();
 
             combat_background.Draw(spriteBatch);
-            
+
             foreach (var hero in teams)
                 hero.Draw(spriteBatch);
 
             foreach (var villain in enemies)
                 villain.DrawFlip(spriteBatch);
-            
+
+            SpriteTexture.DrawFrame(spriteBatch, shipPos);
+
             empty_status_bar.Draw(spriteBatch);
             
             foreach (var component in skillComponents[currentturn])

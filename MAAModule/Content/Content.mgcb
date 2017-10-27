@@ -133,6 +133,18 @@
 /processorParam:TextureFormat=Color
 /build:Character/Agent/Staff_of_Asklepios.png
 
+#begin Character/Ant-Man/Ant-Man Modern.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Ant-Man/Ant-Man Modern.png
+
 #begin Character/Ant-Man/Ant-Man_anime.psd
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -144,6 +156,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Character/Ant-Man/Ant-Man_anime.psd
+
+#begin Character/Ant-Man/Ant-Man_Ant-Man-Greatest_Allies.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Ant-Man/Ant-Man_Ant-Man-Greatest_Allies.png
 
 #begin Character/Ant-Man/Ant-Man_Icon_1.png
 /importer:TextureImporter
@@ -168,6 +192,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Character/Ant-Man/Ant-Man_Icon_Large_1.png
+
+#begin Character/Ant-Man/Ant-Man_Skill_2.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Ant-Man/Ant-Man_Skill_2.gif
+
+#begin Character/Ant-Man/Ant-Man_Skill_2.psd
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Ant-Man/Ant-Man_Skill_2.psd
 
 #begin Character/Ant-Man/Ant-Man-Break_In.png
 /importer:TextureImporter
@@ -205,7 +253,7 @@
 /processorParam:TextureFormat=Color
 /build:Character/Ant-Man/Ant-Man-Modern.png
 
-#begin Character/Ant-Man/Ant-Man-Modern_Stand.gif
+#begin Character/Ant-Man/Ant-Man-Modern_Stand.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -215,7 +263,19 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Ant-Man/Ant-Man-Modern_Stand.gif
+/build:Character/Ant-Man/Ant-Man-Modern_Stand.png
+
+#begin Character/Ant-Man/Ant-Man-Modern_Stand_gif.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Ant-Man/Ant-Man-Modern_Stand_gif.gif
 
 #begin Character/Ant-Man/Ant-Man-Pint-Size_Surprise.png
 /importer:TextureImporter
@@ -240,6 +300,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Character/Ant-Man/Ant-Man-Swarm_Cloud.png
+
+#begin Character/Cable/Cable Classic.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Cable/Cable Classic.png
 
 #begin Character/Cable/Cable_Icon_1.png
 /importer:TextureImporter
@@ -529,6 +601,90 @@
 /processorParam:TextureFormat=Color
 /build:Character/Captain America/Captain_America-WWII.png
 
+#begin Character/Captain America/PC Computer - Marvel Avengers Alliance - Captain America Avengers Age of Ultron.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Captain America/PC Computer - Marvel Avengers Alliance - Captain America Avengers Age of Ultron.png
+
+#begin Character/Captain America/PC Computer - Marvel Avengers Alliance - Captain America Avengers.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Captain America/PC Computer - Marvel Avengers Alliance - Captain America Avengers.png
+
+#begin Character/Captain America/PC Computer - Marvel Avengers Alliance - Captain America Classic.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Captain America/PC Computer - Marvel Avengers Alliance - Captain America Classic.png
+
+#begin Character/Captain America/PC Computer - Marvel Avengers Alliance - Captain America WWII.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Captain America/PC Computer - Marvel Avengers Alliance - Captain America WWII.png
+
+#begin Character/Cyclops/Cyclops Modern.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Cyclops/Cyclops Modern.png
+
+#begin Character/Cyclops/Cyclops Phoenix Five.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Cyclops/Cyclops Phoenix Five.png
+
+#begin Character/Cyclops/Cyclops Uncanny.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Cyclops/Cyclops Uncanny.png
+
 #begin Character/Cyclops/Cyclops_Icon_1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -685,6 +841,30 @@
 /processorParam:TextureFormat=Color
 /build:Character/Cyclops/Cyclops-Uncanny.png
 
+#begin Character/Deadpool/Deadpool Classic.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Deadpool/Deadpool Classic.png
+
+#begin Character/Deadpool/Deadpool Uncanny X-Force.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Deadpool/Deadpool Uncanny X-Force.png
+
 #begin Character/Deadpool/Deadpool_Dialogue_1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -805,6 +985,30 @@
 /processorParam:TextureFormat=Color
 /build:Character/Deadpool/Deadpool-Uncanny_X-Force.png
 
+#begin Character/Dr. Strange/Dr Strange Classic.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Dr. Strange/Dr Strange Classic.png
+
+#begin Character/Dr. Strange/Dr Strange Modern.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Dr. Strange/Dr Strange Modern.png
+
 #begin Character/Dr. Strange/Dr._Strange_Icon_2.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -900,6 +1104,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Character/Dr. Strange/Dr._Strange-Vapors_of_Valtorr.png
+
+#begin Character/Ghost Rider/Ghost Rider Classic.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Ghost Rider/Ghost Rider Classic.png
+
+#begin Character/Ghost Rider/Ghost Rider Greithoth Breaker of Wills.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Ghost Rider/Ghost Rider Greithoth Breaker of Wills.png
 
 #begin Character/Ghost Rider/Ghost_Rider_Icon_1.png
 /importer:TextureImporter
@@ -1296,6 +1524,66 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Character/Hulk/Hulk-World_War.png
+
+#begin Character/Hulk/PC Computer - Marvel Avengers Alliance - Hulk Avengers Age of Ultron.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Hulk/PC Computer - Marvel Avengers Alliance - Hulk Avengers Age of Ultron.png
+
+#begin Character/Hulk/PC Computer - Marvel Avengers Alliance - Hulk Avengers.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Hulk/PC Computer - Marvel Avengers Alliance - Hulk Avengers.png
+
+#begin Character/Hulk/PC Computer - Marvel Avengers Alliance - Hulk Grey.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Hulk/PC Computer - Marvel Avengers Alliance - Hulk Grey.png
+
+#begin Character/Hulk/PC Computer - Marvel Avengers Alliance - Hulk Savage.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Hulk/PC Computer - Marvel Avengers Alliance - Hulk Savage.png
+
+#begin Character/Hulk/PC Computer - Marvel Avengers Alliance - Hulk World War.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Hulk/PC Computer - Marvel Avengers Alliance - Hulk World War.png
 
 #begin Class/Blaster.png
 /importer:TextureImporter

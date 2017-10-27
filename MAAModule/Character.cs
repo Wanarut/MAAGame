@@ -43,13 +43,13 @@ namespace MAAModule
         private int type;
         private bool focus = false;
 
-        protected float rotation;
+        //protected float rotation;
         protected Texture2D texture;
         
         public bool isdead = false;
         public float rotationVelocity = 3f;
         public float linearVelocity = 4f;
-        public Character parent;
+        //public Character parent;
         public Vector2 position = new Vector2(0, 0);
         public Vector2 direction = new Vector2(0, 0);
 
