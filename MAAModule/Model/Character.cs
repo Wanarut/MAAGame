@@ -12,7 +12,7 @@ namespace MAAModule
 {
     class Character
     {
-#region Class
+        #region Class
         public const int CLASS_Generalist = 0;
         public const int CLASS_Blaster = 1;
         public const int CLASS_Bruiser = 2;
