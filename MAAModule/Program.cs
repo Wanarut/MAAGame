@@ -14,7 +14,7 @@ namespace MAAModule
         [STAThread]
         static void Main()
         {
-            using (var game = new MAAGame())
+            using (var game = new Phase())
                 game.Run();
         }
     }

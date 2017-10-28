@@ -3,14 +3,14 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using System;
-using AnimatedSprite;
+using MAAModule.Chars;
 
 namespace MAAModule
 {
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
-    public class MAAGame : Game
+    public class Phase : Game
     {
         #region Fields
         GraphicsDeviceManager graphics;
@@ -30,18 +30,11 @@ namespace MAAModule
         Background empty_status_bar;
         #endregion
         
-        private AnimatedTexture SpriteTexture;
-        private const float Rotation = 0;
-        private const float Scale = 1;
-        private const float Depth = 0;
-
-        public MAAGame()
+        public Phase()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-
-            SpriteTexture = new AnimatedTexture(Vector2.Zero,Rotation, Scale, Depth);
             // Frame rate is 30 fps by default for Zune.
             TargetElapsedTime = TimeSpan.FromSeconds(1 / 15.0);
         }
@@ -54,18 +47,16 @@ namespace MAAModule
         /// </summary>
         protected override void Initialize()
         {
-            Skill skill_lib = new Skill();
-            //Start with 3 your Heroes and set hero's state
-            //teams.Add(Character.Dr_Strange.Alternate_Uniform("Dr._Strange-Modern"));
-            teams.Add(Character.Dr_Strange);
-            teams.Add(Character.Ant_Man);
-            //teams.Add(Character.Ant_Man.Alternate_Uniform("Ant-Man-Modern_Stand"));
-            teams.Add(Character.Deadpool);
-            //Set 3 Villains and set villain's state
-            //enemies.Add(Character.Hulk.Alternate_Uniform(Suit.Hulk_World_War));
-            enemies.Add(Character.Hulk);
-            enemies.Add(Character.Cable);
-            enemies.Add(Character.Captain_America.Alternate_Uniform(Suit.Captain_America_Avengers));
+            //Start with your 3 Heroes
+            teams.Add(new Ant_Man());
+            teams.Add(new Ant_Man());
+            teams.Add(new Ant_Man());
+
+            //Set Enemies team
+            enemies.Add(new Ant_Man());
+            enemies.Add(new Ant_Man());
+            enemies.Add(new Ant_Man());
+
             //Set background
             combat_background = new Background(Content.Load<Texture2D>(Background.Background_010));
 
@@ -73,7 +64,6 @@ namespace MAAModule
         }
 
         private Viewport viewport;
-        private Vector2 shipPos;
         private const int framerate = 15;
         private const int action_time = 5;
         private const int FramesPerSec = 15;
@@ -87,47 +77,47 @@ namespace MAAModule
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            SpriteTexture.Load(Content, "shipanimated", framerate, action_time, FramesPerSec);
             viewport = graphics.GraphicsDevice.Viewport;
-            shipPos = new Vector2(viewport.Width / 2, viewport.Height / 2);
 
             empty_status_bar = new Background(Content.Load<Texture2D>("Character/Agent/Empty_status_bar"));
             empty_status_bar.position = new Vector2(0, 630 - empty_status_bar.Get_Height());
 
             setWindows_size(width, height);
-            //Load skill team
+
+            // TODO: use this.Content to load your game content here
+            //Load teams
             for (int i = 0; i < teams.Count; i++)
             {
                 List<Component> temp = new List<Component>();
-                for (int j = 0; j < teams[i].skills.Count; j++)
+                for (int j = 0; j < teams[i].attacks.Count; j++)
                 {
-                    var btnskill = new Button(Content.Load<Texture2D>("Character/" + teams[i].Get_Name() + "/" + teams[i].skills[j].Get_Name()));
+                    var btnskill = new Button(Content.Load<Texture2D>("Character/" + teams[i].Get_Name() + "/" + teams[i].attacks[j].Get_Name()));
                     btnskill.Position = new Vector2(((combat_background.Get_Width() - btnskill.Get_Width()) / 2) + ((j - 4) * (btnskill.Get_Width() + 8)) + (btnskill.Get_Width() / 2), 496);
                     temp.Add(btnskill);
-                    btnskill.Set_btn_Name(teams[i].skills[j].Get_Name());
+                    btnskill.Set_btn_Name(teams[i].attacks[j].Get_Name());
                     btnskill.Click += btnskill_Click;
                 }
                 skillComponents.Add(temp);
-
-                teams[i] = new Character(Content.Load<Texture2D>("Character/" + teams[i].Get_Name() + "/" + teams[i].Get_subName()));
-                teams[i].position = new Vector2(40 + ((i % 2) * 150) - (i * 10), 330 + (i * 70) - teams[i].Get_Height());
+                
+                teams[i].Load(Content, teams[i].Get_Name(), teams[i].Get_Uniform(), 10, 6, 15);
+                teams[i].current_position = new Vector2(40 + ((i % 2) * 150) - (i * 10), 330 + (i * 70) - teams[i].Get_Height());
             }
-            //Load skill enemies
+            //Load enemies
             for (int i = 0; i < enemies.Count; i++)
             {
                 List<Component> temp = new List<Component>();
-                for (int j = 0; j < enemies[i].skills.Count; j++)
+                for (int j = 0; j < enemies[i].attacks.Count; j++)
                 {
-                    var btnskill = new Button(Content.Load<Texture2D>("Character/" + enemies[i].Get_Name() + "/" + enemies[i].skills[j].Get_Name()));
+                    var btnskill = new Button(Content.Load<Texture2D>("Character/" + enemies[i].Get_Name() + "/" + enemies[i].attacks[j].Get_Name()));
                     btnskill.Position = new Vector2(((combat_background.Get_Width() - btnskill.Get_Width()) / 2) + ((j - 4) * (btnskill.Get_Width() + 8)) + (btnskill.Get_Width() / 2), 496);
                     temp.Add(btnskill);
-                    btnskill.Set_btn_Name(enemies[i].skills[j].Get_Name());
+                    btnskill.Set_btn_Name(enemies[i].attacks[j].Get_Name());
                     btnskill.Click += btnskill_Click;
                 }
                 skillComponents.Add(temp);
 
-                enemies[i] = new Character(Content.Load<Texture2D>("Character/" + enemies[i].Get_Name() + "/" + enemies[i].Get_subName()));
-                enemies[i].position = new Vector2(width - 40 - ((i % 2) * 150) + (i * 10) - enemies[i].Get_Width(), 330 + (i * 70) - enemies[i].Get_Height());
+                enemies[i].Load(Content, enemies[i].Get_Name(), enemies[i].Get_Uniform(), 10, 6, 15);
+                enemies[i].current_position = new Vector2(width - 40 - ((i % 2) * 150) + (i * 10) - enemies[i].Get_Width(), 330 + (i * 70) - enemies[i].Get_Height());
             }
 
             //next turn btn
@@ -163,14 +153,12 @@ namespace MAAModule
                 turnbase.Add(avatar);
 
             turnbase[0].YourTurn(true);
-            // TODO: use this.Content to load your game content here
         }
 
         private void btnskill_Click(object sender, EventArgs e)
         {
             string btnname = ((Button)sender).Get_Name();
             Console.Out.WriteLine("Skill " + btnname + " was used!!!");
-            //combat_background = new Background(Content.Load<Texture2D>("Combat_Background/" + Background.Background_035));
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
@@ -214,10 +202,11 @@ namespace MAAModule
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            SpriteTexture.Play();
-            float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
-            SpriteTexture.UpdateFrame(elapsed);
             // TODO: Add your update logic here
+            foreach (var avatar in turnbase)
+                avatar.Play();
+
+            float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             foreach (var component in skillComponents[currentturn])
                 component.Update(gameTime);
@@ -225,11 +214,14 @@ namespace MAAModule
             foreach (var component in menuComponent)
                 component.Update(gameTime);
 
-            /*foreach (var hero in teams)
-                hero.Update();
+            /*foreach (var avatar in turnbase)
+                avatar.UpdateFrame(elapsed);*/
+
+            foreach (var hero in teams)
+                hero.UpdateFrame(elapsed);
 
             foreach (var villain in enemies)
-                villain.Update();*/
+                villain.UpdateFrame(elapsed);
 
             base.Update(gameTime);
         }
@@ -248,12 +240,10 @@ namespace MAAModule
             combat_background.Draw(spriteBatch);
 
             foreach (var hero in teams)
-                hero.Draw(spriteBatch);
+                hero.DrawFrame(spriteBatch, hero.current_position);
 
-            foreach (var villain in enemies)
-                villain.DrawFlip(spriteBatch);
-
-            SpriteTexture.DrawFrame(spriteBatch, shipPos);
+            foreach (var hero in enemies)
+                hero.DrawFrameFlip(spriteBatch, hero.current_position);
 
             empty_status_bar.Draw(spriteBatch);
             

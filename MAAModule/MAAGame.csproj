@@ -41,16 +41,17 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AnimatedTexture.cs" />
     <Compile Include="Background.cs" />
-    <Compile Include="Button.cs" />
-    <Compile Include="Character.cs" />
-    <Compile Include="Component.cs" />
+    <Compile Include="Chars\Ant-Man.cs" />
+    <Compile Include="Component\Button.cs" />
+    <Compile Include="Model\Character.cs" />
+    <Compile Include="Model\Component.cs" />
     <Compile Include="Input.cs" />
-    <Compile Include="MAAGame.cs" />
+    <Compile Include="MainPhase.cs" />
+    <Compile Include="Model\TargetType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Skill.cs" />
+    <Compile Include="Model\Attack.cs" />
     <Compile Include="Suit.cs" />
   </ItemGroup>
   <ItemGroup>

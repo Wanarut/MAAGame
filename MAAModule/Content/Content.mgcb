@@ -133,18 +133,6 @@
 /processorParam:TextureFormat=Color
 /build:Character/Agent/Staff_of_Asklepios.png
 
-#begin Character/Ant-Man/Ant-Man Modern.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Character/Ant-Man/Ant-Man Modern.png
-
 #begin Character/Ant-Man/Ant-Man_anime.psd
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -156,18 +144,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Character/Ant-Man/Ant-Man_anime.psd
-
-#begin Character/Ant-Man/Ant-Man_Ant-Man-Greatest_Allies.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Character/Ant-Man/Ant-Man_Ant-Man-Greatest_Allies.png
 
 #begin Character/Ant-Man/Ant-Man_Icon_1.png
 /importer:TextureImporter
@@ -192,18 +168,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Character/Ant-Man/Ant-Man_Icon_Large_1.png
-
-#begin Character/Ant-Man/Ant-Man_Skill_2.gif
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Character/Ant-Man/Ant-Man_Skill_2.gif
 
 #begin Character/Ant-Man/Ant-Man_Skill_2.psd
 /importer:TextureImporter
@@ -253,7 +217,7 @@
 /processorParam:TextureFormat=Color
 /build:Character/Ant-Man/Ant-Man-Modern.png
 
-#begin Character/Ant-Man/Ant-Man-Modern_Stand.png
+#begin Character/Ant-Man/Ant-Man-Modern_PNG.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -263,19 +227,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Character/Ant-Man/Ant-Man-Modern_Stand.png
-
-#begin Character/Ant-Man/Ant-Man-Modern_Stand_gif.gif
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Character/Ant-Man/Ant-Man-Modern_Stand_gif.gif
+/build:Character/Ant-Man/Ant-Man-Modern_PNG.png
 
 #begin Character/Ant-Man/Ant-Man-Pint-Size_Surprise.png
 /importer:TextureImporter
@@ -300,6 +252,54 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Character/Ant-Man/Ant-Man-Swarm_Cloud.png
+
+#begin Character/Ant-Man/Main.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Ant-Man/Main.gif
+
+#begin Character/Ant-Man/Skills/Ant-Man-Greatest_Allies.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Ant-Man/Skills/Ant-Man-Greatest_Allies.png
+
+#begin Character/Ant-Man/Skills/Skill_2nd.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Ant-Man/Skills/Skill_2nd.gif
+
+#begin Character/Ant-Man/Spite Sheet Ant-Man-Modern.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Ant-Man/Spite Sheet Ant-Man-Modern.png
 
 #begin Character/Cable/Cable Classic.png
 /importer:TextureImporter
