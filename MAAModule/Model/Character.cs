@@ -75,9 +75,10 @@ namespace MAAModule
         public Vector2 current_position = Vector2.Zero;
         public Vector2 position = Vector2.Zero;
         public Vector2 origin = Vector2.Zero;
+        public Vector2 target = new Vector2(760/2 - 75,630/2 - 100);
         #endregion
 
-#region constructor
+        #region constructor
         public Character()
         {
 
@@ -242,8 +243,9 @@ namespace MAAModule
                 if (!isattacking) current_position = position;
 
             #region Animating Edit
-                Transition(position, new Vector2(0,0), 32, 5);
-            #endregion
+                Transition(position, target, 32, 5);
+                Transition(target, position, 70, 5);
+                #endregion
 
                 //Set Back Main
                 if (isattacking && frame == column_count * row_count)
