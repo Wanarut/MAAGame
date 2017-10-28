@@ -85,6 +85,18 @@
 /processorParam:TextureFormat=Color
 /build:Character/Agent/Arc_Reactor_Charge.png
 
+#begin Character/Agent/Challenge_Mode_Mission_Border.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Agent/Challenge_Mode_Mission_Border.png
+
 #begin Character/Agent/Curative_Measure.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -120,6 +132,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Character/Agent/Empty_status_bar.psd
+
+#begin Character/Agent/HP_pixel.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Agent/HP_pixel.png
+
+#begin Character/Agent/SP_pixel.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Character/Agent/SP_pixel.png
 
 #begin Character/Agent/Staff_of_Asklepios.png
 /importer:TextureImporter
@@ -1776,4 +1812,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Combat_Background/Combat_Background_075.jpg
+
+#begin Fonts/Calibri.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/Calibri.spritefont
+
+#begin Fonts/Conso.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/Conso.spritefont
 

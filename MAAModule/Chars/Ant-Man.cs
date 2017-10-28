@@ -13,8 +13,8 @@ namespace MAAModule.Chars
         public Ant_Man()
         {
         #region Set Stat
-            this.name = "Ant-Man";
-            this.alternate_uniform = "Ant-Man-Modern";
+            this.name = Hero.Ant_Man;
+            this.alternate_uniform = Suit.Ant_Man_Modern;
             this.health = 6438;
             this.stamina = 7868;
             this.attack = 1431;
@@ -26,6 +26,7 @@ namespace MAAModule.Chars
 
         #region Set 1st Attack
             Attack skill = new Attack("Ant-Man-Break_In");
+            skill.Set_Time(5);
             skill.Set_Stamina_Cost(18);
             skill.Set_Num_Target(TargetType.One_Enemy);
             skill.Set_Min_Damage(1072);
@@ -40,6 +41,7 @@ namespace MAAModule.Chars
 
         #region Set 2nd Attack
             skill = new Attack("Ant-Man-Greatest_Allies");
+            skill.Set_Time(5);
             skill.Set_Stamina_Cost(5);
             skill.Set_Num_Target(TargetType.All_Enemies);
             skill.Set_Min_Damage(241);
@@ -54,6 +56,7 @@ namespace MAAModule.Chars
 
         #region Set 3rd Attack
             skill = new Attack("Ant-Man-Pint-Size_Surprise");
+            skill.Set_Time(5);
             skill.Set_Stamina_Cost(23);
             skill.Set_Num_Target(TargetType.One_Enemy);
             skill.Set_Min_Damage(1146);
@@ -68,6 +71,7 @@ namespace MAAModule.Chars
 
         #region Set 4th Attack
             skill = new Attack("Ant-Man-Swarm_Cloud");
+            skill.Set_Time(5);
             skill.Set_Stamina_Cost(5);
             skill.Set_Num_Target(TargetType.One_Enemy);
             skill.Set_Min_Damage(510);

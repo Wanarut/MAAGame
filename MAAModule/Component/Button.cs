@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace MAAModule
+namespace MAAModule.Model
 {
     class Button : Component
     {
@@ -26,6 +26,7 @@ namespace MAAModule
         private bool isMoveing;
         private Texture2D texture;
         private string name;
+        private int time_cast;
 
         public event EventHandler Click;
         public float rotation = 0;
@@ -48,10 +49,15 @@ namespace MAAModule
         {
             this.texture = texture;
         }
-
+#region Get Function
         public string Get_Name()
         {
             return name;
+        }
+
+        public int Get_Time()
+        {
+            return time_cast;
         }
 
         public int Get_Height()
@@ -63,11 +69,19 @@ namespace MAAModule
         {
             return texture.Width;
         }
+        #endregion
 
-        public void Set_btn_Name(string name)
+#region Set Function
+        public void Set_Name(string name)
         {
             this.name = name;
         }
+
+        public void Set_Time(int time_cast)
+        {
+            this.time_cast = time_cast;
+        }
+#endregion
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {

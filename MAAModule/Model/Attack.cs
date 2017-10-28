@@ -53,6 +53,7 @@ namespace MAAModule
 
 #region Fields
         protected string name;
+        protected int time_cast;
         protected int stamina_cost;
         protected TargetType num_target;
         protected int min_damage;
@@ -71,6 +72,11 @@ namespace MAAModule
 #endregion
 
 #region Set Attack Poperties
+        public void Set_Time(int time_cast)
+        {
+            this.time_cast = time_cast;
+        }
+
         public void Set_Stamina_Cost(int stamina_cost)
         {
             this.stamina_cost = stamina_cost;
@@ -109,6 +115,11 @@ namespace MAAModule
         #endregion
 
 #region Get Attack Poperties
+        public int Get_Time()
+        {
+            return time_cast;
+        }
+
         public string Get_Name()
         {
             return name;

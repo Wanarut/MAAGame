@@ -41,19 +41,22 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Background.cs" />
+    <Compile Include="Component\StatusBar.cs" />
+    <Compile Include="Model\Background.cs" />
     <Compile Include="Chars\NewHero.cs" />
     <Compile Include="Chars\Ant-Man.cs" />
     <Compile Include="Component\Button.cs" />
     <Compile Include="Model\Character.cs" />
     <Compile Include="Model\Component.cs" />
-    <Compile Include="Input.cs" />
-    <Compile Include="Phase.cs" />
+    <Compile Include="Component\Input.cs" />
+    <Compile Include="Model\HeroName.cs" />
+    <Compile Include="MAAGame.cs" />
     <Compile Include="Model\TargetType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\Attack.cs" />
-    <Compile Include="Suit.cs" />
+    <Compile Include="Model\SuitName.cs" />
+    <Compile Include="Turn\MainPhase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

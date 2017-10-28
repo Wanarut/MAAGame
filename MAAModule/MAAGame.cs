@@ -4,15 +4,16 @@ using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using System;
 using MAAModule.Chars;
+using MAAModule.Model;
 
 namespace MAAModule
 {
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
-    public class Phase : Game
+    public class MAAGame : Game
     {
-        #region Fields
+    #region Game Fields
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
@@ -23,14 +24,15 @@ namespace MAAModule
         private List<Character> enemies = new List<Character>();
         private List<List<Component>> skillComponents = new List<List<Component>>();
         private List<Component> menuComponent = new List<Component>();
+        private List<Component> statusComponent = new List<Component>();
         private List<Character> turnbase = new List<Character>();
-        private int currentturn = 0;
+        protected int currentturn = 0;
 
         Background combat_background;
         Background empty_status_bar;
-        #endregion
+    #endregion
         
-        public Phase()
+        public MAAGame()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
@@ -63,10 +65,10 @@ namespace MAAModule
             base.Initialize();
         }
 
-        private Viewport viewport;
-        private const int framerate = 15;
-        private const int action_time = 5;
-        private const int FramesPerSec = 15;
+    #region Grapic Setting
+        protected Viewport viewport;
+        protected const int framerate = 15;
+    #endregion
 
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
@@ -82,69 +84,91 @@ namespace MAAModule
             empty_status_bar = new Background(Content.Load<Texture2D>("Character/Agent/Empty_status_bar"));
             empty_status_bar.position = new Vector2(0, 630 - empty_status_bar.Get_Height());
 
-            setWindows_size(width, height);
+            Set_Windows_size(width, height);
 
             // TODO: use this.Content to load your game content here
             //Load teams
             for (int i = 0; i < teams.Count; i++)
             {
+                //Load Skill
                 List<Component> temp = new List<Component>();
                 for (int j = 0; j < teams[i].attacks.Count; j++)
                 {
                     var btnskill = new Button(Content.Load<Texture2D>("Character/" + teams[i].Get_Name() + "/" + teams[i].attacks[j].Get_Name()));
                     btnskill.Position = new Vector2(((combat_background.Get_Width() - btnskill.Get_Width()) / 2) + ((j - 4) * (btnskill.Get_Width() + 8)) + (btnskill.Get_Width() / 2), 496);
                     temp.Add(btnskill);
-                    btnskill.Set_btn_Name(teams[i].attacks[j].Get_Name());
-                    btnskill.Click += btnskill_Click;
+                    btnskill.Set_Name(teams[i].attacks[j].Get_Name());
+                    btnskill.Set_Time(teams[i].attacks[j].Get_Time());
+                    btnskill.Click += BtnAttack_Click;
                 }
                 skillComponents.Add(temp);
-                
-                teams[i].Load(Content, teams[i].Get_Name(), teams[i].Get_Uniform(), 10, 6, 15);
-                teams[i].current_position = new Vector2(40 + ((i % 2) * 150) - (i * 10), 330 + (i * 70) - teams[i].Get_Height());
+                //Load Status
+                var hp = new StatusBar(teams[i].Get_Name(), teams[i].Get_Health(), StatusBar.HEALTH);
+                hp.Position = new Vector2(7, height - 71 + (i * 24));
+                hp.Load(Content);
+                statusComponent.Add(hp);
+                var sp = new StatusBar(teams[i].Get_Stamina(), StatusBar.STAMINA);
+                sp.Position = new Vector2(7, height - 61 + (i * 24));
+                sp.Load(Content);
+                statusComponent.Add(sp);
+                //Load Sprite
+                teams[i].Load(Content, teams[i].Get_Name(), teams[i].Get_Uniform(), 10, 6, framerate);
+                teams[i].position = new Vector2(40 + ((i % 2) * 150) - (i * 10), 330 + (i * 70) - teams[i].Get_Height());
             }
             //Load enemies
             for (int i = 0; i < enemies.Count; i++)
             {
+                //Load Skill
                 List<Component> temp = new List<Component>();
                 for (int j = 0; j < enemies[i].attacks.Count; j++)
                 {
                     var btnskill = new Button(Content.Load<Texture2D>("Character/" + enemies[i].Get_Name() + "/" + enemies[i].attacks[j].Get_Name()));
                     btnskill.Position = new Vector2(((combat_background.Get_Width() - btnskill.Get_Width()) / 2) + ((j - 4) * (btnskill.Get_Width() + 8)) + (btnskill.Get_Width() / 2), 496);
                     temp.Add(btnskill);
-                    btnskill.Set_btn_Name(enemies[i].attacks[j].Get_Name());
-                    btnskill.Click += btnskill_Click;
+                    btnskill.Set_Name(enemies[i].attacks[j].Get_Name());
+                    btnskill.Set_Time(enemies[i].attacks[j].Get_Time());
+                    btnskill.Click += BtnAttack_Click;
                 }
                 skillComponents.Add(temp);
-
-                enemies[i].Load(Content, enemies[i].Get_Name(), enemies[i].Get_Uniform(), 10, 6, 15);
-                enemies[i].current_position = new Vector2(width - 40 - ((i % 2) * 150) + (i * 10) - enemies[i].Get_Width(), 330 + (i * 70) - enemies[i].Get_Height());
+                //Load Status
+                var hp = new StatusBar(enemies[i].Get_Name(), enemies[i].Get_Health(), StatusBar.HEALTH);
+                hp.Position = new Vector2(389, height - 71 + (i * 24));
+                hp.Load(Content);
+                statusComponent.Add(hp);
+                var sp = new StatusBar(enemies[i].Get_Stamina(), StatusBar.STAMINA);
+                sp.Position = new Vector2(389, height - 61 + (i * 24));
+                sp.Load(Content);
+                statusComponent.Add(sp);
+                //Load Sprite
+                enemies[i].Load(Content, enemies[i].Get_Name(), enemies[i].Get_Uniform(), 10, 6, framerate);
+                enemies[i].position = new Vector2(width - 40 - ((i % 2) * 150) + (i * 10) - enemies[i].Get_Width(), 330 + (i * 70) - enemies[i].Get_Height());
             }
-
+#region Menu Btn
             //next turn btn
             var btnNextTurn = new Button(Content.Load<Texture2D>(Button.Agent_Recharge));
             btnNextTurn.Position = new Vector2(((combat_background.Get_Width() - btnNextTurn.Get_Width()) / 2) + ((4 - 0) * (btnNextTurn.Get_Width() + 8)) - (btnNextTurn.Get_Width() / 2), 496);
             menuComponent.Add(btnNextTurn);
-            btnNextTurn.Set_btn_Name(Button.Agent_Recharge);
-            btnNextTurn.Click += btnMenu_Click;
+            btnNextTurn.Set_Name(Button.Agent_Recharge);
+            btnNextTurn.Click += BtnMenu_Click;
 
             var btnInventory = new Button(Content.Load<Texture2D>(Button.Agent_Inventory));
             btnInventory.Position = new Vector2(((combat_background.Get_Width() - btnInventory.Get_Width()) / 2) + ((4 - 1) * (btnInventory.Get_Width() + 8)) - (btnInventory.Get_Width() / 2), 496);
             menuComponent.Add(btnInventory);
-            btnInventory.Set_btn_Name(Button.Agent_Inventory);
-            btnInventory.Click += btnMenu_Click;
+            btnInventory.Set_Name(Button.Agent_Inventory);
+            btnInventory.Click += BtnMenu_Click;
 
             var btnCall = new Button(Content.Load<Texture2D>(Button.Agent_Distress_Call));
             btnCall.Position = new Vector2(((combat_background.Get_Width() - btnCall.Get_Width()) / 2) + ((4 - 2) * (btnCall.Get_Width() + 8)) - (btnCall.Get_Width() / 2), 496);
             menuComponent.Add(btnCall);
-            btnCall.Set_btn_Name(Button.Agent_Distress_Call);
-            btnCall.Click += btnMenu_Click;
+            btnCall.Set_Name(Button.Agent_Distress_Call);
+            btnCall.Click += BtnMenu_Click;
 
             var btnArc = new Button(Content.Load<Texture2D>(Button.Arc_Reactor_Charge));
             btnArc.Position = new Vector2(((combat_background.Get_Width() - btnArc.Get_Width()) / 2) + ((4 - 3) * (btnArc.Get_Width() + 8)) - (btnArc.Get_Width() / 2), 496);
             menuComponent.Add(btnArc);
-            btnArc.Set_btn_Name(Button.Arc_Reactor_Charge);
-            btnArc.Click += btnMenu_Click;
-
+            btnArc.Set_Name(Button.Arc_Reactor_Charge);
+            btnArc.Click += BtnMenu_Click;
+#endregion
             //set turn base
             foreach (Character avatar in teams)
                 turnbase.Add(avatar);
@@ -152,16 +176,17 @@ namespace MAAModule
             foreach (Character avatar in enemies)
                 turnbase.Add(avatar);
 
-            turnbase[0].YourTurn(true);
+            turnbase[0].Set_Focus(true);
         }
 
-        private void btnskill_Click(object sender, EventArgs e)
+        private void BtnAttack_Click(object sender, EventArgs e)
         {
             string btnname = ((Button)sender).Get_Name();
-            Console.Out.WriteLine("Skill " + btnname + " was used!!!");
+            int time = ((Button)sender).Get_Time();
+            turnbase[currentturn].SkillAction(Content, btnname, time);
         }
 
-        private void btnMenu_Click(object sender, EventArgs e)
+        private void BtnMenu_Click(object sender, EventArgs e)
         {
             string btnname = ((Button)sender).Get_Name();
 
@@ -169,10 +194,10 @@ namespace MAAModule
             {
                 case Button.Agent_Recharge :
                     {
-                        turnbase[currentturn].YourTurn(false);
+                        turnbase[currentturn].Set_Focus(false);
                         if (currentturn == turnbase.Count - 1) currentturn = 0;
                         else currentturn++;
-                        turnbase[currentturn].YourTurn(true);
+                        turnbase[currentturn].Set_Focus(true);
                         break;
                     }
                 case Button.Agent_Inventory:
@@ -214,8 +239,8 @@ namespace MAAModule
             foreach (var component in menuComponent)
                 component.Update(gameTime);
 
-            /*foreach (var avatar in turnbase)
-                avatar.UpdateFrame(elapsed);*/
+            foreach (var component in statusComponent)
+                component.Update(gameTime);
 
             foreach (var hero in teams)
                 hero.UpdateFrame(elapsed);
@@ -240,10 +265,10 @@ namespace MAAModule
             combat_background.Draw(spriteBatch);
 
             foreach (var hero in teams)
-                hero.DrawFrame(spriteBatch, hero.current_position);
+                hero.DrawFrame(spriteBatch, hero.position);
 
             foreach (var hero in enemies)
-                hero.DrawFrameFlip(spriteBatch, hero.current_position);
+                hero.DrawFrameFlip(spriteBatch, hero.position);
 
             empty_status_bar.Draw(spriteBatch);
             
@@ -253,12 +278,15 @@ namespace MAAModule
             foreach (var component in menuComponent)
                 component.Draw(gameTime, spriteBatch);
 
+            foreach (var component in statusComponent)
+                component.Draw(gameTime, spriteBatch);
+
             spriteBatch.End();
 
             base.Draw(gameTime);
         }
 
-        protected void setWindows_size(int w, int h)
+        protected void Set_Windows_size(int w, int h)
         {
             this.width = w;
             this.height = h;
