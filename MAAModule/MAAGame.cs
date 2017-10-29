@@ -24,7 +24,6 @@ namespace MAAModule
         private List<Character> enemies = new List<Character>();
         private List<List<Component>> skillComponents = new List<List<Component>>();
         private List<Component> menuComponent = new List<Component>();
-        private List<Component> statusComponent = new List<Component>();
         private List<Character> turnbase = new List<Character>();
         protected int currentturn = 0;
 
@@ -67,7 +66,7 @@ namespace MAAModule
 
     #region Grapic Setting
         protected Viewport viewport;
-        protected const int framerate = 15;
+        protected const int framerate = 30;
     #endregion
 
         /// <summary>
@@ -95,54 +94,51 @@ namespace MAAModule
                 for (int j = 0; j < teams[i].attacks.Count; j++)
                 {
                     var btnskill = new Button(Content.Load<Texture2D>("Character/" + teams[i].Get_Name() + "/" + teams[i].attacks[j].Get_Name()));
+                    btnskill.attack = teams[i].attacks[j];
                     btnskill.Position = new Vector2(((combat_background.Get_Width() - btnskill.Get_Width()) / 2) + ((j - 4) * (btnskill.Get_Width() + 8)) + (btnskill.Get_Width() / 2), 496);
                     temp.Add(btnskill);
-                    btnskill.Set_Name(teams[i].attacks[j].Get_Name());
-                    btnskill.Set_Time(teams[i].attacks[j].Get_Time());
                     btnskill.Click += BtnAttack_Click;
                 }
                 skillComponents.Add(temp);
                 //Load Status
-                var hp = new StatusBar(teams[i].Get_Name(), teams[i].Get_Health(), StatusBar.HEALTH);
-                hp.Position = new Vector2(7, height - 71 + (i * 24));
-                hp.Load(Content);
-                statusComponent.Add(hp);
-                var sp = new StatusBar(teams[i].Get_Stamina(), StatusBar.STAMINA);
-                sp.Position = new Vector2(7, height - 61 + (i * 24));
-                sp.Load(Content);
-                statusComponent.Add(sp);
+                teams[i].hp_bar = new StatusBar(teams[i].Get_Name(), teams[i].Get_Health(), StatusBar.HEALTH);
+                teams[i].hp_bar.Position = new Vector2(7, height - 71 + (i * 24));
+                teams[i].hp_bar.Load(Content);
+                teams[i].sp_bar = new StatusBar(teams[i].Get_Stamina(), StatusBar.STAMINA);
+                teams[i].sp_bar.Position = new Vector2(7, height - 61 + (i * 24));
+                teams[i].sp_bar.Load(Content);
                 //Load Sprite
-                teams[i].Load(Content, teams[i].Get_Name(), teams[i].Get_Uniform(), 10, 6, framerate);
-                teams[i].position = new Vector2(40 + ((i % 2) * 150) - (i * 10), 330 + (i * 70) - teams[i].Get_Height());
+                teams[i].Load(Content, teams[i].Get_Name(), teams[i].Get_Uniform(), 15, 4, framerate);
+                teams[i].Position = new Vector2(40 + ((i % 2) * 150) - (i * 10), 330 + (i * 70) - teams[i].Get_Height());
+                teams[i].Click += Char_was_Click;
             }
             //Load enemies
-            for (int i = 0; i < enemies.Count; i++)
+            for (int i = 0; i < teams.Count; i++)
             {
                 //Load Skill
                 List<Component> temp = new List<Component>();
                 for (int j = 0; j < enemies[i].attacks.Count; j++)
                 {
                     var btnskill = new Button(Content.Load<Texture2D>("Character/" + enemies[i].Get_Name() + "/" + enemies[i].attacks[j].Get_Name()));
+                    btnskill.attack = enemies[i].attacks[j];
                     btnskill.Position = new Vector2(((combat_background.Get_Width() - btnskill.Get_Width()) / 2) + ((j - 4) * (btnskill.Get_Width() + 8)) + (btnskill.Get_Width() / 2), 496);
                     temp.Add(btnskill);
-                    btnskill.Set_Name(enemies[i].attacks[j].Get_Name());
-                    btnskill.Set_Time(enemies[i].attacks[j].Get_Time());
                     btnskill.Click += BtnAttack_Click;
                 }
                 skillComponents.Add(temp);
                 //Load Status
-                var hp = new StatusBar(enemies[i].Get_Name(), enemies[i].Get_Health(), StatusBar.HEALTH);
-                hp.Position = new Vector2(389, height - 71 + (i * 24));
-                hp.Load(Content);
-                statusComponent.Add(hp);
-                var sp = new StatusBar(enemies[i].Get_Stamina(), StatusBar.STAMINA);
-                sp.Position = new Vector2(389, height - 61 + (i * 24));
-                sp.Load(Content);
-                statusComponent.Add(sp);
+                enemies[i].hp_bar = new StatusBar(enemies[i].Get_Name(), enemies[i].Get_Health(), StatusBar.HEALTH);
+                enemies[i].hp_bar.Position = new Vector2(389, height - 71 + (i * 24));
+                enemies[i].hp_bar.Load(Content);
+                enemies[i].sp_bar = new StatusBar(enemies[i].Get_Stamina(), StatusBar.STAMINA);
+                enemies[i].sp_bar.Position = new Vector2(389, height - 61 + (i * 24));
+                enemies[i].sp_bar.Load(Content);
                 //Load Sprite
-                enemies[i].Load(Content, enemies[i].Get_Name(), enemies[i].Get_Uniform(), 10, 6, framerate);
-                enemies[i].position = new Vector2(width - 40 - ((i % 2) * 150) + (i * 10) - enemies[i].Get_Width(), 330 + (i * 70) - enemies[i].Get_Height());
+                enemies[i].Load(Content, enemies[i].Get_Name(), enemies[i].Get_Uniform(), 15, 4, framerate);
+                enemies[i].Position = new Vector2(width - 40 - ((i % 2) * 150) + (i * 10) - enemies[i].Get_Width(), 330 + (i * 70) - enemies[i].Get_Height());
+                enemies[i].Click += Char_was_Click;
             }
+            
 #region Menu Btn
             //next turn btn
             var btnNextTurn = new Button(Content.Load<Texture2D>(Button.Agent_Recharge));
@@ -179,11 +175,26 @@ namespace MAAModule
             turnbase[0].Set_Focus(true);
         }
 
+        private void Char_was_Click(object sender, EventArgs e)
+        {
+            if (!pick_skill) return;
+            turnbase[currentturn].target.Add(((Character)sender).Get_Me());
+
+            Console.Out.WriteLine(turnbase[currentturn].target[0].Get_Name() + "Was Click!!!");
+            if (turnbase[currentturn].current_attack.Get_Target() == TargetType.One_Enemy)
+            {
+                turnbase[currentturn].SkillAction(Content,turnbase[currentturn], turnbase[currentturn].current_attack, turnbase[currentturn].target);
+            }
+            pick_skill = false;
+        }
+        
+        bool pick_skill = false;
+
         private void BtnAttack_Click(object sender, EventArgs e)
         {
-            string btnname = ((Button)sender).Get_Name();
-            int time = ((Button)sender).Get_Time();
-            turnbase[currentturn].SkillAction(Content, btnname, time);
+            turnbase[currentturn].current_attack = ((Button)sender).Get_Attack();
+            Console.Out.WriteLine(turnbase[currentturn].current_attack.Get_Name() + "Was Click!!!");
+            pick_skill = true;
         }
 
         private void BtnMenu_Click(object sender, EventArgs e)
@@ -239,14 +250,17 @@ namespace MAAModule
             foreach (var component in menuComponent)
                 component.Update(gameTime);
 
-            foreach (var component in statusComponent)
-                component.Update(gameTime);
-
             foreach (var hero in teams)
+            {
                 hero.UpdateFrame(elapsed);
+                hero.Update(gameTime);
+            }
 
             foreach (var villain in enemies)
+            {
                 villain.UpdateFrame(elapsed);
+                villain.Update(gameTime);
+            }
 
             base.Update(gameTime);
         }
@@ -257,29 +271,30 @@ namespace MAAModule
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            //GraphicsDevice.Clear(BG);
-
             // TODO: Add your drawing code here
             spriteBatch.Begin();
 
             combat_background.Draw(spriteBatch);
 
-            foreach (var hero in teams)
-                hero.DrawFrame(spriteBatch, hero.position);
-
-            foreach (var hero in enemies)
-                hero.DrawFrameFlip(spriteBatch, hero.position);
-
             empty_status_bar.Draw(spriteBatch);
-            
+
             foreach (var component in skillComponents[currentturn])
                 component.Draw(gameTime, spriteBatch);
 
             foreach (var component in menuComponent)
                 component.Draw(gameTime, spriteBatch);
+                          
+            foreach (var avatar in enemies)
+            {
+                avatar.DrawFrameFlip(spriteBatch, avatar.Position);
+                avatar.Draw(gameTime, spriteBatch);
+            }
 
-            foreach (var component in statusComponent)
-                component.Draw(gameTime, spriteBatch);
+            foreach (var avatar in teams)
+            {
+                avatar.DrawFrame(spriteBatch, avatar.Position);
+                avatar.Draw(gameTime, spriteBatch);
+            }
 
             spriteBatch.End();
 

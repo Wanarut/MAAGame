@@ -11,7 +11,7 @@ namespace MAAModule.Model
 {
     class Button : Component
     {
-        #region Menu Data
+#region Menu Data
         public const string Agent_Recharge = "Character/Agent/Agent_Recharge";
         public const string Agent_Inventory = "Character/Agent/Agent_Inventory";
         public const string Agent_Distress_Call = "Character/Agent/Agent_Distress_Call";
@@ -19,7 +19,7 @@ namespace MAAModule.Model
         public const string Arc_Reactor_Charge = "Character/Agent/Arc_Reactor_Charge";
         public const string Curative_Measure = "Character/Agent/Curative_Measure";
         public const string Staff_of_Asklepios = "Character/Agent/Staff_of_Asklepios";
-        #endregion
+#endregion
 
         private MouseState currentMouse;
         private MouseState previousMouse;
@@ -28,6 +28,7 @@ namespace MAAModule.Model
         private string name;
         private int time_cast;
 
+        public Attack attack;
         public event EventHandler Click;
         public float rotation = 0;
 
@@ -68,6 +69,11 @@ namespace MAAModule.Model
         public int Get_Width()
         {
             return texture.Width;
+        }
+
+        public Attack Get_Attack()
+        {
+            return attack;
         }
         #endregion
 

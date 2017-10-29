@@ -20,7 +20,7 @@ namespace MAAModule
         public const int CLASS_Scrapper = 3;
         public const int CLASS_Infiltrator = 4;
         public const int CLASS_Tactician = 5;
-#endregion
+        #endregion
 
         #region Heroes Data
         /*public static Character Dr_Strange = new Character("Dr. Strange", "Dr._Strange-Classic", 6438, 5722, 1717, 1144, 1717, 1288, Character.CLASS_Tactician);
@@ -46,14 +46,18 @@ namespace MAAModule
         protected int accuracy;
         protected int evasion;
         protected int _class;
-        
+
         public Input input;
         public List<Attack> attacks = new List<Attack>();
-#endregion
+        public StatusBar hp_bar = new StatusBar();
+        public StatusBar sp_bar = new StatusBar();
+        #endregion
 
 #region Animation var
         //Frame var
         protected int frame;
+        protected int frame_width;
+        protected int frame_height;
         protected int column_count;
         protected int row_count;
         protected int fps;
@@ -63,22 +67,40 @@ namespace MAAModule
         protected bool Paused;
         //avatar var
         protected bool focus = false;
-        protected bool isattacking = false;
+        public bool reach_target = false;
         protected bool wasattacked = false;
         protected bool isdead = false;
-        protected Texture2D texture;
-        protected ContentManager content;
+        public Texture2D texture;
+        public ContentManager content;
 
+        private MouseState currentMouse;
+        private MouseState previousMouse;
+        private bool isMoveing;
+
+        public event EventHandler Click;
+
+        public Rectangle Rectangle
+
+        {
+            get
+            {
+                return new Rectangle((int)current_position.X, (int)current_position.Y, frame_width, frame_height);
+            }
+        }
+
+        public Vector2 Position { get; set; }
+        
+        public bool isattacking = false;
         public float Rotation = 0;
         public float Scale = 1;
         public float Depth = 0;
         public Vector2 current_position = Vector2.Zero;
-        public Vector2 position = Vector2.Zero;
         public Vector2 origin = Vector2.Zero;
-        public Vector2 target = new Vector2(760/2 - 75,630/2 - 100);
+        public List<Character> target = new List<Character>();
+        public Attack current_attack;
         #endregion
 
-        #region constructor
+#region constructor
         public Character()
         {
 
@@ -91,24 +113,26 @@ namespace MAAModule
 
         public Character(Vector2 origin)
         {
-            this.position = origin;
+            this.Position = origin;
         }
 
         public Character(Vector2 origin, float rotation, float scale, float depth)
         {
-            this.position = origin;
+            this.Position = origin;
             this.Rotation = rotation;
             this.Scale = scale;
             this.Depth = depth;
         }
         #endregion
-        
+
         public void Load(ContentManager content, string name, string uniform, int columnframeCount, int rowframeCount, int framesPerSec)
         {
             this.content = content;
             this.column_count = columnframeCount;
             this.row_count = rowframeCount;
             this.texture = this.content.Load<Texture2D>("Character/" + name + "/" + uniform);
+            this.frame_width = texture.Width / column_count;
+            this.frame_height = texture.Height / row_count;
             timePerFrame = (float)1 / framesPerSec;
             fps = 0;
             time_cast = 0;
@@ -172,6 +196,11 @@ namespace MAAModule
             return texture.Width / column_count;
         }
 
+        public Character Get_Me()
+        {
+            return this;
+        }
+
         public List<Attack> Get_Attacks()
         {
             return attacks;
@@ -186,7 +215,7 @@ namespace MAAModule
 
         public void Set_WasAttacked(bool logic)
         {
-            wasattacked = logic;
+            reach_target = logic;
         }
 
         public void Set_IsDead(bool logic)
@@ -195,9 +224,9 @@ namespace MAAModule
         }
 #endregion
 
-        public void SkillAction(ContentManager content, string skill_name, int time)
+        public void SkillAction(ContentManager content ,Character subject,Attack verb, List<Character> objects)
         {
-            Load(content, Hero.Ant_Man + "/Skills", skill_name, 15, time, 15);
+            if(!isattacking) Load(content, Hero.Ant_Man + "/Skills", verb.Get_Name(), 15, verb.Get_Time(), 15);
             isattacking = true;
         }
 
@@ -231,8 +260,64 @@ namespace MAAModule
         #endregion
 
 #region Graphic Function
+        public void Update(GameTime gameTime)
+        {
+            hp_bar.Update(gameTime);
+            sp_bar.Update(gameTime);
+        }
+
+        public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+        {
+            hp_bar.Draw(gameTime, spriteBatch);
+            sp_bar.Draw(gameTime, spriteBatch);
+        }
+
         public void UpdateFrame(float elapsed)
         {
+            previousMouse = currentMouse;
+            currentMouse = Mouse.GetState();
+
+            var mouseRectangle = new Rectangle(currentMouse.X, currentMouse.Y, 1, 1);
+
+            isMoveing = false;
+
+            if (mouseRectangle.Intersects(Rectangle))
+            {
+                isMoveing = true;
+
+                if (currentMouse.LeftButton == ButtonState.Released && previousMouse.LeftButton == ButtonState.Pressed)
+                {
+                    Click?.Invoke(this, new EventArgs());
+                }
+            }
+
+            Rectangle targetRectangle = new Rectangle();
+            try
+            {
+                targetRectangle = new Rectangle((int)target[0].Position.X, (int)target[0].Position.Y, 1, 1);
+            }
+            catch
+            {
+
+            }
+
+            reach_target = false;
+
+            if (targetRectangle.Intersects(Rectangle))
+            {
+                reach_target = true;
+            }
+
+            try
+            {
+                if (reach_target) target[0].Load(content, Hero.Ant_Man, "Ant-Man-Modern_was_Hit", 1, 1, 15);
+                else target[0].Load(content, Hero.Ant_Man, Suit.Ant_Man_Modern, 15, 4, 15);
+            }
+            catch
+            {
+
+            }
+
             if (Paused)
                 return;
             TotalElapsed += elapsed;
@@ -240,18 +325,16 @@ namespace MAAModule
             {
                 fps++;
                 if (fps == column_count) time_cast++;
-                if (!isattacking) current_position = position;
+                if (!isattacking) current_position = Position;
 
-            #region Animating Edit
-                Transition(position, target, 32, 5);
-                Transition(target, position, 70, 5);
-                #endregion
+                else Animating_Attack_2();
 
                 //Set Back Main
                 if (isattacking && frame == column_count * row_count)
                 {
-                    this.Load(content, Hero.Ant_Man, Suit.Ant_Man_Modern, 10, 6, 15);
+                    this.Load(content, Hero.Ant_Man, Suit.Ant_Man_Modern, 15, 4, 15);
                     isattacking = false;
+                    target.Remove(target[0]);
                 }
                 // Keep the Frame between 0 and the total frames, minus one.
                 fps = fps % column_count;
@@ -260,33 +343,39 @@ namespace MAAModule
             }
         }
 
-        public void DrawFrame(SpriteBatch batch, Vector2 position)
+        public void DrawFrame(SpriteBatch spriteBatch, Vector2 position)
         {
-            DrawFrame(batch, fps, time_cast, position);
+            DrawFrame(spriteBatch, fps, time_cast, position);
         }
 
         public void DrawFrame(SpriteBatch spriteBatch, int columnframe, int rowframe, Vector2 position, SpriteEffects effect = SpriteEffects.None)
         {
+            var color = Color.Gray;
+
+            if (isMoveing || focus)
+                color = Color.White;
+
             int framewidth = texture.Width / column_count;
             int framehigth = texture.Height / row_count;
             Rectangle source_rect = new Rectangle(framewidth * columnframe, framehigth * rowframe, framewidth, framehigth);
-            if(focus) spriteBatch.Draw(texture, this.current_position, source_rect, Color.White, Rotation, origin, Scale, effect, Depth);
-            else spriteBatch.Draw(texture, this.current_position, source_rect, Color.Gray, Rotation, origin, Scale, effect, Depth);
+            spriteBatch.Draw(texture, this.current_position, source_rect, color, Rotation, origin, Scale, effect, Depth);
         }
 
-        public void DrawFrameFlip(SpriteBatch batch, Vector2 position)
+        public void DrawFrameFlip(SpriteBatch spriteBatch, Vector2 position)
         {
-            DrawFrameFlip(batch, fps, time_cast, position);
+            DrawFrameFlip(spriteBatch, fps, time_cast, position);
         }
 
         public void DrawFrameFlip(SpriteBatch spriteBatch, int columnframe, int rowframe, Vector2 position)
         {
             DrawFrame(spriteBatch, columnframe, rowframe, position, SpriteEffects.FlipHorizontally);
         }
+#endregion
 
-        public Vector2 Speed(Vector2 initial,Vector2 final,float frame)
+        private void Animating_Attack_2()
         {
-            return new Vector2((final.X - initial.X) / frame, (final.Y - initial.Y) / frame);
+            Transition(Position, target[0].Position, 32, 5);
+            Transition(target[0].Position, Position, 70, 5);
         }
 
         public void Transition(Vector2 initial, Vector2 final, int startframe, int frame_count)
@@ -299,6 +388,10 @@ namespace MAAModule
                 current_position.Y += Speed(initial, final, frame_count).Y;
             }
         }
-#endregion
+
+        public Vector2 Speed(Vector2 initial, Vector2 final, float frame)
+        {
+            return new Vector2((final.X - initial.X) / frame, (final.Y - initial.Y) / frame);
+        }
     }
 }

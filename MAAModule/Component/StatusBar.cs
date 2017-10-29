@@ -32,6 +32,11 @@ namespace MAAModule.Model
 
         public Vector2 Position { get; set; }
 
+        public StatusBar()
+        {
+
+        }
+
         public StatusBar(int max_value, string type)
         {
             this.width = MAX_WIDTH;
@@ -68,23 +73,16 @@ namespace MAAModule.Model
             Conso = content.Load<SpriteFont>("Fonts/Conso");
         }
 
+        public override void Update(GameTime gameTime)
+        {
+            width = (value * MAX_WIDTH) / max_value;
+        }
+
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture, new Rectangle(Convert.ToInt32(Position.X) + 43, Convert.ToInt32(Position.Y), width, MAX_HEIGHT), Color.White);
             spriteBatch.DrawString(Calibri, type + "                                          " + (value).ToString(), Position, Color.White);
-            try
-            {
-                spriteBatch.DrawString(Conso, hero_name, new Vector2(Position.X + 160, Position.Y + 2), Color.White);
-            }
-            catch
-            {
-
-            }
-        }
-
-        public override void Update(GameTime gameTime)
-        {
-            width = (value * MAX_WIDTH) / max_value;
+            spriteBatch.DrawString(Conso, hero_name + "", new Vector2(Position.X + 160, Position.Y + 2), Color.White);
         }
     }
 }
