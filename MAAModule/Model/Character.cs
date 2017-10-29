@@ -56,8 +56,8 @@ namespace MAAModule
 #region Animation var
         //Frame var
         protected int frame;
-        protected int frame_width;
-        protected int frame_height;
+        public int frame_width;
+        public int frame_height;
         protected int column_count;
         protected int row_count;
         protected int fps;
@@ -66,10 +66,10 @@ namespace MAAModule
         protected float TotalElapsed;
         protected bool Paused;
         //avatar var
-        protected bool focus = false;
+        protected bool focus = true;
         public bool reach_target = false;
-        protected bool wasattacked = false;
         protected bool isdead = false;
+        public Character next;
         public Texture2D texture;
         public ContentManager content;
 
@@ -96,7 +96,7 @@ namespace MAAModule
         public float Depth = 0;
         public Vector2 current_position = Vector2.Zero;
         public Vector2 origin = Vector2.Zero;
-        public List<Character> target = new List<Character>();
+        public List<Character> targets = new List<Character>();
         public Attack current_attack;
         #endregion
 
@@ -130,7 +130,7 @@ namespace MAAModule
             this.content = content;
             this.column_count = columnframeCount;
             this.row_count = rowframeCount;
-            this.texture = this.content.Load<Texture2D>("Character/" + name + "/" + uniform);
+            this.texture = content.Load<Texture2D>("Character/" + name + "/" + uniform);
             this.frame_width = texture.Width / column_count;
             this.frame_height = texture.Height / row_count;
             timePerFrame = (float)1 / framesPerSec;
@@ -154,6 +154,16 @@ namespace MAAModule
         public int Get_Health()
         {
             return health;
+        }
+
+        public int Get_Max_Stamina()
+        {
+            return max_stamina;
+        }
+
+        public int Get_Max_Health()
+        {
+            return max_stamina;
         }
 
         public int Get_Stamina()
@@ -207,7 +217,42 @@ namespace MAAModule
         }
         #endregion
 
-#region Set Function
+        #region Set Function
+        public void Set_Health(int health)
+        {
+            this.health = health;
+        }
+
+        public void Set_Stamina(int stamina)
+        {
+            this.stamina = stamina;
+        }
+
+        public void Set_Attack(int attack)
+        {
+            this.attack = attack;
+        }
+
+        public void Set_Defense(int defense)
+        {
+            this.defense = defense;
+        }
+
+        public void Set_Accuracy(int accuracy)
+        {
+            this.accuracy = accuracy;
+        }
+
+        public void Set_Evasion(int evasion)
+        {
+            this.evasion = evasion;
+        }
+
+        public void Set_Class(int _class)
+        {
+            this._class = _class;
+        }
+
         public void Set_Focus(bool logic)
         {
             focus = logic;
@@ -224,9 +269,15 @@ namespace MAAModule
         }
 #endregion
 
-        public void SkillAction(ContentManager content ,Character subject,Attack verb, List<Character> objects)
+        public void SkillAction()
         {
-            if(!isattacking) Load(content, Hero.Ant_Man + "/Skills", verb.Get_Name(), 15, verb.Get_Time(), 15);
+            Character current = this;
+            while (current != null)
+            {
+                focus = true;
+                current = current.next;
+            }
+            if (!isattacking) Load(content, Hero.Ant_Man + "/Skills", current_attack.Get_Name(), 15, current_attack.Get_Time(), 15);
             isattacking = true;
         }
 
@@ -258,10 +309,11 @@ namespace MAAModule
             Paused = true;
         }
         #endregion
-
+        //GameTime gameTime;
 #region Graphic Function
-        public void Update(GameTime gameTime)
+        public void Update(ContentManager content,GameTime gameTime)
         {
+            this.content = content;
             hp_bar.Update(gameTime);
             sp_bar.Update(gameTime);
         }
@@ -274,6 +326,7 @@ namespace MAAModule
 
         public void UpdateFrame(float elapsed)
         {
+#region Mouse Cast
             previousMouse = currentMouse;
             currentMouse = Mouse.GetState();
 
@@ -290,51 +343,59 @@ namespace MAAModule
                     Click?.Invoke(this, new EventArgs());
                 }
             }
+            #endregion
+
+#region reach target
 
             Rectangle targetRectangle = new Rectangle();
             try
             {
-                targetRectangle = new Rectangle((int)target[0].Position.X, (int)target[0].Position.Y, 1, 1);
+                targetRectangle = new Rectangle((int)targets[0].Position.X, (int)targets[0].Position.Y, frame_width, frame_height);
             }
             catch
             {
 
             }
 
-            reach_target = false;
-
-            if (targetRectangle.Intersects(Rectangle))
-            {
-                reach_target = true;
-            }
-
-            try
-            {
-                if (reach_target) target[0].Load(content, Hero.Ant_Man, "Ant-Man-Modern_was_Hit", 1, 1, 15);
-                else target[0].Load(content, Hero.Ant_Man, Suit.Ant_Man_Modern, 15, 4, 15);
-            }
-            catch
-            {
-
-            }
+            if (targetRectangle.Intersects(Rectangle)) reach_target = true;
+            else reach_target = false;
+#endregion
 
             if (Paused)
                 return;
+
             TotalElapsed += elapsed;
+
+            frame = (column_count * time_cast) + fps + 1;
+
             if (TotalElapsed > timePerFrame)
             {
                 fps++;
                 if (fps == column_count) time_cast++;
-                if (!isattacking) current_position = Position;
 
-                else Animating_Attack_2();
+                if (!isattacking) current_position = Position;
+                else {
+                    if (current_attack.Get_Target() == TargetType.One_Enemy) Animating_Attack_2();
+                    Calculator engine = new Calculator();
+                    if (active) targets = engine.StatCalculate(this, targets);
+                    active = false;
+                }
+
+                foreach (var target in targets)
+                {
+                    if (reach_target) target.Load(content, Hero.Ant_Man, "Ant-Man-Modern_was_Hit", 1, 1, 15);
+                    else target.Load(content, Hero.Ant_Man, Suit.Ant_Man_Modern, 15, 4, 15);
+                }
 
                 //Set Back Main
                 if (isattacking && frame == column_count * row_count)
                 {
                     this.Load(content, Hero.Ant_Man, Suit.Ant_Man_Modern, 15, 4, 15);
                     isattacking = false;
-                    target.Remove(target[0]);
+                    foreach (var target in targets)
+                        target.Load(content, Hero.Ant_Man, Suit.Ant_Man_Modern, 15, 4, 15);
+                    targets = new List<Character>();
+                    focus = false;
                 }
                 // Keep the Frame between 0 and the total frames, minus one.
                 fps = fps % column_count;
@@ -343,12 +404,12 @@ namespace MAAModule
             }
         }
 
-        public void DrawFrame(SpriteBatch spriteBatch, Vector2 position)
+        public void DrawFrame(SpriteBatch spriteBatch)
         {
-            DrawFrame(spriteBatch, fps, time_cast, position);
+            DrawFrame(spriteBatch, fps, time_cast);
         }
 
-        public void DrawFrame(SpriteBatch spriteBatch, int columnframe, int rowframe, Vector2 position, SpriteEffects effect = SpriteEffects.None)
+        public void DrawFrame(SpriteBatch spriteBatch, int columnframe, int rowframe, SpriteEffects effect = SpriteEffects.None)
         {
             var color = Color.Gray;
 
@@ -361,27 +422,27 @@ namespace MAAModule
             spriteBatch.Draw(texture, this.current_position, source_rect, color, Rotation, origin, Scale, effect, Depth);
         }
 
-        public void DrawFrameFlip(SpriteBatch spriteBatch, Vector2 position)
+        public void DrawFrameFlip(SpriteBatch spriteBatch)
         {
-            DrawFrameFlip(spriteBatch, fps, time_cast, position);
+            DrawFrameFlip(spriteBatch, fps, time_cast);
         }
 
-        public void DrawFrameFlip(SpriteBatch spriteBatch, int columnframe, int rowframe, Vector2 position)
+        public void DrawFrameFlip(SpriteBatch spriteBatch, int columnframe, int rowframe)
         {
-            DrawFrame(spriteBatch, columnframe, rowframe, position, SpriteEffects.FlipHorizontally);
+            DrawFrame(spriteBatch, columnframe, rowframe, SpriteEffects.FlipHorizontally);
         }
-#endregion
+        #endregion
+        bool active = true;
 
         private void Animating_Attack_2()
         {
-            Transition(Position, target[0].Position, 32, 5);
-            Transition(target[0].Position, Position, 70, 5);
+            Vector2 goal = new Vector2(targets[0].Position.X - (targets[0].frame_width / 8), targets[0].Position.Y);
+            Transition(Position, goal, 32, 5);
+            Transition(goal, Position, 70, 5);
         }
 
         public void Transition(Vector2 initial, Vector2 final, int startframe, int frame_count)
         {
-            frame = (column_count * time_cast) + fps + 1;
-
             if (isattacking && frame > startframe && frame < startframe + frame_count)
             {
                 current_position.X += Speed(initial, final, frame_count).X;

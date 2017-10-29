@@ -55,7 +55,7 @@ namespace MAAModule
         protected string name;
         protected int time_cast;
         protected int stamina_cost;
-        protected TargetType num_target;
+        protected int num_target;
         protected int min_damage;
         protected int max_damage;
         protected int cooldown;
@@ -82,7 +82,7 @@ namespace MAAModule
             this.stamina_cost = stamina_cost;
         }
 
-        public void Set_Num_Target(TargetType num_target)
+        public void Set_Num_Target(int num_target)
         {
             this.num_target = num_target;
         }
@@ -130,9 +130,19 @@ namespace MAAModule
             return stamina_cost;
         }
 
-        public TargetType Get_Target()
+        public int Get_Target()
         {
             return num_target;
+        }
+
+        public int Get_MinDamage()
+        {
+            return min_damage;
+        }
+
+        public int Get_MaxDamage()
+        {
+            return max_damage;
         }
 
         public int Get_Cooldown()

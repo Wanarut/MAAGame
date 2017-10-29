@@ -16,7 +16,9 @@ namespace MAAModule.Chars
             this.name = Hero.Ant_Man;
             this.alternate_uniform = Suit.Ant_Man_Modern;
             this.health = 6438;
+            this.max_health = health;
             this.stamina = 7868;
+            this.max_stamina = stamina;
             this.attack = 1431;
             this.defense = 1288;
             this.accuracy = 1431;
@@ -43,7 +45,7 @@ namespace MAAModule.Chars
             skill = new Attack("Ant-Man-Greatest_Allies");
             skill.Set_Time(5);
             skill.Set_Stamina_Cost(5);
-            skill.Set_Num_Target(TargetType.All_Enemies);
+            skill.Set_Num_Target(TargetType.One_Enemy);
             skill.Set_Min_Damage(241);
             skill.Set_Max_Damage(288);
             skill.Set_Cooldown(1);

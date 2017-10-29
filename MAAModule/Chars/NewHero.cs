@@ -16,7 +16,9 @@ namespace MAAModule.Chars
             this.name = Hero.Ant_Man; //Fix Hero Name
             this.alternate_uniform = Suit.Ant_Man_Modern;    //Fix Hero's Form Name
             this.health = 999;     //Fix Health Point
+            this.max_health = health;
             this.stamina = 999;    //Fix Stamina Point
+            this.max_stamina = stamina;
             this.attack = 999;     //Fix Attack Point
             this.defense = 999;    //Fix Defense Point
             this.accuracy = 999;   //Fix Accuracy Point

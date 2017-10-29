@@ -75,14 +75,24 @@ namespace MAAModule.Model
 
         public override void Update(GameTime gameTime)
         {
+            this.gameTime = gameTime;
             width = (value * MAX_WIDTH) / max_value;
         }
 
+        GameTime gameTime;
+
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, new Rectangle(Convert.ToInt32(Position.X) + 43, Convert.ToInt32(Position.Y), width, MAX_HEIGHT), Color.White);
-            spriteBatch.DrawString(Calibri, type + "                                          " + (value).ToString(), Position, Color.White);
-            spriteBatch.DrawString(Conso, hero_name + "", new Vector2(Position.X + 160, Position.Y + 2), Color.White);
+            try
+            {
+                spriteBatch.Draw(texture, new Rectangle(Convert.ToInt32(Position.X) + 43, Convert.ToInt32(Position.Y), width, MAX_HEIGHT), Color.White);
+                spriteBatch.DrawString(Calibri, type + "                                          " + (value).ToString(), Position, Color.White);
+                spriteBatch.DrawString(Conso, hero_name + "", new Vector2(Position.X + 160, Position.Y + 2), Color.White);
+            }
+            catch
+            {
+
+            }
         }
     }
 }

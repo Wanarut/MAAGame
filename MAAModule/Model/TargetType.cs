@@ -9,11 +9,11 @@ namespace MAAModule.Model
     class TargetType
     {
         #region Target and Cooldown
-        public static TargetType Self;
-        public static TargetType One_Ally;
-        public static TargetType One_Enemy;
-        public static TargetType All_Allies;
-        public static TargetType All_Enemies;
+        public const int Self = 0;
+        public const int One_Ally = 1;
+        public const int One_Enemy = 2;
+        public const int All_Allies = 3;
+        public const int All_Enemies = 4;
         #endregion
     }
 }

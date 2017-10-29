@@ -46,6 +46,7 @@
     <Compile Include="Chars\NewHero.cs" />
     <Compile Include="Chars\Ant-Man.cs" />
     <Compile Include="Component\Button.cs" />
+    <Compile Include="Model\Calculator.cs" />
     <Compile Include="Model\Character.cs" />
     <Compile Include="Model\Component.cs" />
     <Compile Include="Component\Input.cs" />

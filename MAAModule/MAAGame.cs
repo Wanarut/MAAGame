@@ -16,6 +16,9 @@ namespace MAAModule
     #region Game Fields
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Calculator engine;
+
+        public const int PLAYER = 1;
 
         public int width = 760;
         public int height = 630;
@@ -24,8 +27,8 @@ namespace MAAModule
         private List<Character> enemies = new List<Character>();
         private List<List<Component>> skillComponents = new List<List<Component>>();
         private List<Component> menuComponent = new List<Component>();
-        private List<Character> turnbase = new List<Character>();
-        protected int currentturn = 0;
+        private List<Character> heroes = new List<Character>();
+        protected int current = 0;
 
         Background combat_background;
         Background empty_status_bar;
@@ -48,6 +51,7 @@ namespace MAAModule
         /// </summary>
         protected override void Initialize()
         {
+            engine = new Calculator();
             //Start with your 3 Heroes
             teams.Add(new Ant_Man());
             teams.Add(new Ant_Man());
@@ -166,25 +170,44 @@ namespace MAAModule
             btnArc.Click += BtnMenu_Click;
 #endregion
             //set turn base
-            foreach (Character avatar in teams)
-                turnbase.Add(avatar);
+            for(int i = 0; i < Math.Max(teams.Count, enemies.Count); i++)
+            {
+                heroes.Add(teams[i]);
+                heroes.Add(enemies[i]);
+            }
 
-            foreach (Character avatar in enemies)
-                turnbase.Add(avatar);
+            for(int i = 0; i < heroes.Count - 1; i++)
+            {
+                heroes[i].next = heroes[i + 1];
+            }
 
-            turnbase[0].Set_Focus(true);
+            heroes[current].Set_Focus(true);
         }
 
         private void Char_was_Click(object sender, EventArgs e)
         {
             if (!pick_skill) return;
-            turnbase[currentturn].target.Add(((Character)sender).Get_Me());
 
-            Console.Out.WriteLine(turnbase[currentturn].target[0].Get_Name() + "Was Click!!!");
-            if (turnbase[currentturn].current_attack.Get_Target() == TargetType.One_Enemy)
+            if (heroes[current].current_attack.Get_Target() == TargetType.One_Enemy)
             {
-                turnbase[currentturn].SkillAction(Content,turnbase[currentturn], turnbase[currentturn].current_attack, turnbase[currentturn].target);
+                heroes[current].targets.Add(((Character)sender).Get_Me());
             }
+            else
+            {
+                foreach (var target in enemies)
+                    heroes[current].targets.Add(target);
+            }
+
+            heroes[current].SkillAction();
+            /*if (heroes[current].isattacking)
+            {
+                foreach (var avatar in heroes)
+                    avatar.Set_Focus(true);
+            }*/
+            if (current > heroes.Count - ((MAAGame.PLAYER % 2) + 1)) current = 0;
+            /*else current += ((MAAGame.PLAYER % 2) + 1);*/
+            heroes[current].Set_Focus(true);
+
             pick_skill = false;
         }
         
@@ -192,9 +215,12 @@ namespace MAAModule
 
         private void BtnAttack_Click(object sender, EventArgs e)
         {
-            turnbase[currentturn].current_attack = ((Button)sender).Get_Attack();
-            Console.Out.WriteLine(turnbase[currentturn].current_attack.Get_Name() + "Was Click!!!");
+            heroes[current].current_attack = ((Button)sender).Get_Attack();
+            Console.Out.WriteLine(heroes[current].current_attack.Get_Name() + "Was Click!!!");
             pick_skill = true;
+            foreach (var avatar in heroes)
+                avatar.Set_Focus(false);
+            heroes[current].Set_Focus(true);
         }
 
         private void BtnMenu_Click(object sender, EventArgs e)
@@ -205,10 +231,12 @@ namespace MAAModule
             {
                 case Button.Agent_Recharge :
                     {
-                        turnbase[currentturn].Set_Focus(false);
-                        if (currentturn == turnbase.Count - 1) currentturn = 0;
-                        else currentturn++;
-                        turnbase[currentturn].Set_Focus(true);
+                        heroes[current].Set_Focus(false);
+                        /*if (current >= heroes.Count - 1) current = 0;
+                        else current++;*/
+                        if (current >= heroes.Count - 1) current = 0;
+                        else current++;
+                        heroes[current].Set_Focus(true);
                         break;
                     }
                 case Button.Agent_Inventory:
@@ -239,27 +267,21 @@ namespace MAAModule
                 Exit();
 
             // TODO: Add your update logic here
-            foreach (var avatar in turnbase)
+            foreach (var avatar in heroes)
                 avatar.Play();
 
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            foreach (var component in skillComponents[currentturn])
+            foreach (var component in skillComponents[current])
                 component.Update(gameTime);
 
             foreach (var component in menuComponent)
                 component.Update(gameTime);
 
-            foreach (var hero in teams)
+            foreach(var avatar in heroes)
             {
-                hero.UpdateFrame(elapsed);
-                hero.Update(gameTime);
-            }
-
-            foreach (var villain in enemies)
-            {
-                villain.UpdateFrame(elapsed);
-                villain.Update(gameTime);
+                avatar.UpdateFrame(elapsed);
+                avatar.Update(Content, gameTime);
             }
 
             base.Update(gameTime);
@@ -278,26 +300,77 @@ namespace MAAModule
 
             empty_status_bar.Draw(spriteBatch);
 
-            foreach (var component in skillComponents[currentturn])
+            foreach (var component in skillComponents[current])
                 component.Draw(gameTime, spriteBatch);
 
             foreach (var component in menuComponent)
                 component.Draw(gameTime, spriteBatch);
-                          
-            foreach (var avatar in enemies)
-            {
-                avatar.DrawFrameFlip(spriteBatch, avatar.Position);
+            
+            foreach(var avatar in heroes)
                 avatar.Draw(gameTime, spriteBatch);
-            }
 
-            foreach (var avatar in teams)
+            if (heroes[current].targets.Count == 0 || heroes[current].current_position.X <= teams[1].Position.X + teams[1].frame_width)
             {
-                avatar.DrawFrame(spriteBatch, avatar.Position);
-                avatar.Draw(gameTime, spriteBatch);
+                foreach (var avatar in heroes)
+                {
+                    if (avatar.Position.X <= width / 2) avatar.DrawFrame(spriteBatch);
+                    else avatar.DrawFrameFlip(spriteBatch);
+                }
+                spriteBatch.End();
+                base.Draw(gameTime);
+                return;
             }
+            else
+            {
+                /*for (int i = 0; i < heroes.Count; i++)
+                {
+                    if (heroes[i].Position.X <= width / 2) heroes[i].DrawFrame(spriteBatch);
+                    else heroes[i].DrawFrameFlip(spriteBatch);
 
+                    if (heroes[current].targets[0].Position.Y < heroes[current].Position.Y && heroes[current].targets[0].Position.Y == heroes[0].Position.Y)    //target up
+                    {
+                        if (heroes[3].Position.X <= width / 2) heroes[3].DrawFrame(spriteBatch);
+                        else heroes[3].DrawFrameFlip(spriteBatch);
+                    }
+                    else
+
+                    /*if(heroes[current].targets[0].Position.Y <= teams[0].Position.Y && i < 1)
+                    {
+                        if (heroes[current].Position.X <= width / 2) heroes[current].DrawFrame(spriteBatch);
+                        else heroes[current].DrawFrameFlip(spriteBatch);
+                    }else
+
+                    if (heroes[current].targets[0].Position.Y > heroes[current].Position.Y && i == heroes.Count - 1)    //target down
+                    {
+                        if (heroes[current].Position.X <= width / 2) heroes[current].DrawFrame(spriteBatch);
+                        else heroes[current].DrawFrameFlip(spriteBatch);
+                    }
+                }*/
+                for(int i = 0; i < heroes.Count; i++)
+                {
+                    if (heroes[i].Position.X <= width / 2) heroes[i].DrawFrame(spriteBatch);
+                    else heroes[i].DrawFrameFlip(spriteBatch);
+
+                    if ((heroes[current].Position.Y == heroes[0].Position.Y || heroes[current].Position.Y == heroes[2].Position.Y) && heroes[current].targets[0].Position.Y == heroes[5].Position.Y)    //Form \
+                    {
+                        if (heroes[current].Position.X <= width / 2) heroes[current].DrawFrame(spriteBatch);
+                        else heroes[current].DrawFrameFlip(spriteBatch);
+                    }else
+                    /*if(heroes[current].Position.Y == heroes[2].Position.Y && heroes[current].targets[0].Position.Y == heroes[5].Position.Y)
+                    {
+                        if (heroes[current].Position.X <= width / 2) heroes[current].DrawFrame(spriteBatch);
+                        else heroes[current].DrawFrameFlip(spriteBatch);
+                    }
+                    else*/
+                    if (heroes[current].Position.Y == heroes[4].Position.Y && heroes[current].targets[0].Position.Y == heroes[1].Position.Y)    //Form /
+                    {
+                        if (heroes[3].Position.X <= width / 2) heroes[3].DrawFrame(spriteBatch);
+                        else heroes[3].DrawFrameFlip(spriteBatch);
+                    }
+                }
+            }
+            
             spriteBatch.End();
-
             base.Draw(gameTime);
         }
 
