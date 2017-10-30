@@ -32,5 +32,16 @@ namespace MAAModule.Model
             }
             return attackeds;
         }
+
+        /*public List<Character> SortPosition(List<Character> heroes)
+        {
+            for(int i = 0; i < heroes.Count; i++)
+            {
+                for(int j = 0;j < heroes.Count; j++)
+                {
+                    if()
+                }
+            }
+        }*/
     }
 }

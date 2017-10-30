@@ -310,8 +310,7 @@ namespace MAAModule
             foreach(var avatar in heroes)
                 avatar.Draw(gameTime, spriteBatch);
 
-#region Not Optimize
-            /*if (heroes[current].targets.Count == 0 || heroes[current].current_position.X <= teams[1].Position.X + teams[1].frame_width)
+            if (heroes[current].targets.Count == 0 || heroes[current].current_position.X <= teams[1].Position.X + teams[1].frame_width)
             {
                 foreach (var avatar in heroes)
                 {
@@ -334,7 +333,7 @@ namespace MAAModule
                         if (heroes[3].Position.X <= width / 2) heroes[3].DrawFrame(spriteBatch);
                         else heroes[3].DrawFrameFlip(spriteBatch);
                     }
-                    else*/
+                    else
 
                     /*if(heroes[current].targets[0].Position.Y <= teams[0].Position.Y && i < 1)
                     {
@@ -348,7 +347,7 @@ namespace MAAModule
                         else heroes[current].DrawFrameFlip(spriteBatch);
                     }
                 }*/
-                /*for(int i = 0; i < heroes.Count; i++)
+                for(int i = 0; i < heroes.Count; i++)
                 {
                     if (heroes[i].Position.X <= width / 2) heroes[i].DrawFrame(spriteBatch);
                     else heroes[i].DrawFrameFlip(spriteBatch);
@@ -357,22 +356,21 @@ namespace MAAModule
                     {
                         if (heroes[current].Position.X <= width / 2) heroes[current].DrawFrame(spriteBatch);
                         else heroes[current].DrawFrameFlip(spriteBatch);
-                    }else*/
+                    }else
                     /*if(heroes[current].Position.Y == heroes[2].Position.Y && heroes[current].targets[0].Position.Y == heroes[5].Position.Y)
                     {
                         if (heroes[current].Position.X <= width / 2) heroes[current].DrawFrame(spriteBatch);
                         else heroes[current].DrawFrameFlip(spriteBatch);
                     }
                     else*/
-                    /*if (heroes[current].Position.Y == heroes[4].Position.Y && heroes[current].targets[0].Position.Y == heroes[1].Position.Y)    //Form /
+                    if (heroes[current].Position.Y == heroes[4].Position.Y && heroes[current].targets[0].Position.Y == heroes[1].Position.Y)    //Form /
                     {
                         if (heroes[3].Position.X <= width / 2) heroes[3].DrawFrame(spriteBatch);
                         else heroes[3].DrawFrameFlip(spriteBatch);
                     }
                 }
-            }*/
-#endregion
-
+            }
+            
             spriteBatch.End();
             base.Draw(gameTime);
         }
